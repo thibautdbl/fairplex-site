@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merci — Fairplex</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F5F0E8;
+    --green-dark: #1E3A2F;
+    --green-light: #4A8C6A;
+    --green-pale: #D4E6DC;
+    --text-dark: #1A2B22;
+    --text-muted: #5A7265;
+    --white: #FDFCF8;
+  }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  nav {
+    background: var(--green-dark);
+    padding: 0 4rem;
+    display: flex; align-items: center;
+    height: 68px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 600;
+    color: var(--cream); text-decoration: none;
+  }
+  .nav-logo span { color: var(--green-light); }
+  main {
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .success-box { max-width: 480px; }
+  .success-icon {
+    width: 72px; height: 72px;
+    background: var(--green-pale);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 2rem;
+  }
+  .success-icon svg {
+    width: 36px; height: 36px;
+    stroke: var(--green-dark); fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; color: var(--green-dark);
+    margin-bottom: 1rem;
+  }
+  p { color: var(--text-muted); font-weight: 300; font-size: 1rem; line-height: 1.7; }
+  .btn-back {
+    display: inline-block;
+    margin-top: 2rem;
+    background: var(--green-dark);
+    color: var(--cream);
+    padding: 13px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem; font-weight: 500;
+    transition: background 0.2s;
+  }
+  .btn-back:hover { background: #2E5944; }
+  footer {
+    background: #111C16;
+    padding: 1.5rem 4rem;
+    text-align: center;
+  }
+  .footer-copy { font-size: 0.78rem; color: rgba(245,240,232,0.22); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">fair<span>plex</span></a>
+</nav>
+<main>
+  <div class="success-box">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h1>Demande envoyée !</h1>
+    <p>Merci pour votre demande de devis. Nous l'avons bien reçue et vous recontacterons dans les <strong>24 heures</strong> ouvrées à l'adresse email indiquée.</p>
+    <a href="index.html" class="btn-back">← Retour au site</a>
+  </div>
+</main>
+<footer>
+  <p class="footer-copy">© 2025 Fairplex — Tous droits réservés</p>
+</footer>
+</body>
+</html>
