@@ -39,7 +39,7 @@
     border-bottom: 3px solid transparent;
     border-image: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue)) 1;
   }
-  .nav-logo img { height: 68px; width: auto; display: block; filter: brightness(0) invert(1); }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; color: var(--cream); text-decoration: none; letter-spacing: 0.05em; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.875rem; font-weight: 400; letter-spacing: 0.03em; transition: color 0.2s; }
   .nav-links a:hover { color: #fff; }
@@ -195,9 +195,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
-    <img src="logo.jpg" alt="Fairplex – le réflexe antivol">
-  </a>
+  <a href="#" class="nav-logo">fairplex</a>
   <ul class="nav-links">
     <li><a href="#about">À propos</a></li>
     <li><a href="#produits">Nos offres</a></li>
@@ -215,13 +213,7 @@
     <a href="#configurateur" class="btn-primary">Faire une demande de devis</a>
   </div>
   <div class="hero-visual">
-    <div class="plexi-illustration">
-      <div class="plexi-block"></div>
-      <div class="plexi-block"></div>
-      <div class="plexi-block"></div>
-      <div class="plexi-block"></div>
-      <div class="plexi-label">protection étagère</div>
-    </div>
+    <img src="logo.jpg" alt="Fairplex – le réflexe antivol" style="width:320px; max-width:90%; filter: brightness(0) invert(1);">
   </div>
 </section>
 
