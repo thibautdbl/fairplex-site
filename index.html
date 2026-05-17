@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fairplex – Protection Plexiglass pour étagères</title>
-<meta name="description" content="Fairplex conçoit des protections en plexiglass sur mesure pour les étagères de pharmacies, supermarchés et boutiques.">
+<title>Fairplex – Le réflexe antivol</title>
+<meta name="description" content="Fairplex conçoit des protections en plexiglass sur mesure pour les étagères de commerces. Simple, élégant, efficace.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,10 +12,14 @@
   :root {
     --cream: #F4F6F8;
     --cream-dark: #E8ECF0;
-    --green-dark: #2B3D52;
-    --green-mid: #3A5268;
-    --green-light: #3DAA72;
+    --navy: #2B3D52;
+    --navy-mid: #3A5268;
+    --green: #3DAA72;
     --green-pale: #D6EFE2;
+    --red: #D93B35;
+    --orange: #F08A1E;
+    --yellow: #B8CC1A;
+    --blue: #29B5D8;
     --text-dark: #1E2D3D;
     --text-muted: #5A6E82;
     --border: #C5D3DE;
@@ -23,451 +27,167 @@
   }
 
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--text-dark);
-    font-size: 16px;
-    line-height: 1.7;
-  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); font-size: 16px; line-height: 1.7; }
 
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: var(--green-dark);
+    background: var(--navy);
     padding: 0 4rem;
     display: flex; align-items: center; justify-content: space-between;
-    height: 68px;
+    height: 80px;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue)) 1;
   }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem; font-weight: 600;
-    color: var(--cream);
-    letter-spacing: 0.05em;
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--green-light); }
+  .nav-logo img { height: 60px; width: auto; display: block; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    color: rgba(245,240,232,0.75); text-decoration: none;
-    font-size: 0.875rem; font-weight: 400;
-    letter-spacing: 0.03em;
-    transition: color 0.2s;
-  }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.875rem; font-weight: 400; letter-spacing: 0.03em; transition: color 0.2s; }
   .nav-links a:hover { color: #fff; }
 
   /* HERO */
   .hero {
-    margin-top: 68px;
-    background: var(--green-dark);
+    margin-top: 80px; background: var(--navy);
     padding: 7rem 4rem 6rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    overflow: hidden; position: relative;
   }
-  .hero::after {
-    content: '';
-    position: absolute; bottom: -2px; left: 0; right: 0;
-    height: 60px;
-    background: var(--cream);
-    clip-path: ellipse(55% 100% at 50% 100%);
-  }
-  .hero-tag {
-    display: inline-block;
-    background: rgba(255,255,255,0.1);
-    color: var(--green-pale);
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 50px;
-    margin-bottom: 1.5rem;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 3.5vw, 3rem);
-    font-weight: 600;
-    color: var(--cream);
-    line-height: 1.2;
-    margin-bottom: 1.25rem;
-  }
-  .hero h1 em { color: var(--green-light); font-style: normal; }
-  .hero p {
-    color: rgba(245,240,232,0.75);
-    font-size: 1.05rem;
-    font-weight: 300;
-    margin-bottom: 2.5rem;
-    max-width: 480px;
-  }
-  .btn-primary {
-    display: inline-block;
-    background: var(--cream);
-    color: var(--green-dark);
-    padding: 14px 32px;
-    border-radius: 4px;
-    font-weight: 500;
-    font-size: 0.9rem;
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    cursor: pointer;
-    border: none;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-primary:hover { background: #fff; transform: translateY(-1px); }
+  .hero::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 60px; background: var(--cream); clip-path: ellipse(55% 100% at 50% 100%); }
+  .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue)); }
+  .hero-tag { display: inline-block; background: rgba(255,255,255,0.1); color: #D6EFE2; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 14px; border-radius: 50px; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: 600; color: #F4F6F8; line-height: 1.2; margin-bottom: 1.25rem; }
+  .hero h1 em { color: var(--green); font-style: normal; }
+  .hero p { color: rgba(255,255,255,0.7); font-size: 1.05rem; font-weight: 300; margin-bottom: 2.5rem; max-width: 480px; }
+  .btn-primary { display: inline-block; background: var(--green); color: #fff; padding: 14px 32px; border-radius: 4px; font-weight: 500; font-size: 0.9rem; text-decoration: none; letter-spacing: 0.02em; cursor: pointer; border: none; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: #34c47f; transform: translateY(-1px); }
 
-  .hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .plexi-illustration {
-    position: relative;
-    width: 280px; height: 300px;
-  }
-  .plexi-block {
-    position: absolute;
-    border-radius: 3px;
-    background: rgba(180,220,200,0.15);
-    border: 1.5px solid rgba(180,220,200,0.4);
-  }
+  .hero-visual { display: flex; justify-content: center; align-items: center; }
+  .plexi-illustration { position: relative; width: 280px; height: 300px; }
+  .plexi-block { position: absolute; border-radius: 3px; background: rgba(180,220,200,0.15); border: 1.5px solid rgba(180,220,200,0.4); }
   .plexi-block:nth-child(1) { width: 200px; height: 140px; top: 20px; left: 40px; }
   .plexi-block:nth-child(2) { width: 160px; height: 110px; top: 80px; left: 80px; background: rgba(180,220,200,0.08); }
-  .plexi-block:nth-child(3) { width: 220px; height: 10px; top: 170px; left: 30px; background: rgba(74,140,106,0.3); border-radius: 2px; }
-  .plexi-block:nth-child(4) { width: 220px; height: 10px; top: 190px; left: 30px; background: rgba(74,140,106,0.2); border-radius: 2px; }
-  .plexi-label {
-    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
-    background: var(--green-light);
-    color: white; font-size: 0.7rem; letter-spacing: 0.1em;
-    text-transform: uppercase; padding: 5px 14px; border-radius: 50px;
-    white-space: nowrap;
-  }
+  .plexi-block:nth-child(3) { width: 220px; height: 10px; top: 170px; left: 30px; background: rgba(61,170,114,0.3); border-radius: 2px; }
+  .plexi-block:nth-child(4) { width: 220px; height: 10px; top: 190px; left: 30px; background: rgba(61,170,114,0.2); border-radius: 2px; }
+  .plexi-label { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); background: var(--green); color: white; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 50px; white-space: nowrap; }
 
   /* SECTIONS */
   section { padding: 5rem 4rem; }
-
-  .section-tag {
-    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--green-light); font-weight: 500;
-    margin-bottom: 0.75rem;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.7rem, 2.5vw, 2.2rem);
-    font-weight: 600;
-    color: var(--green-dark);
-    line-height: 1.25;
-    margin-bottom: 1rem;
-  }
-  .section-lead {
-    color: var(--text-muted);
-    font-size: 1rem;
-    max-width: 560px;
-    font-weight: 300;
-  }
+  .section-tag { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); font-weight: 500; margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 2.5vw, 2.2rem); font-weight: 600; color: var(--navy); line-height: 1.25; margin-bottom: 1rem; }
+  .section-lead { color: var(--text-muted); font-size: 1rem; max-width: 560px; font-weight: 300; }
 
   /* À PROPOS */
   #about { background: var(--white); }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-    margin-top: 3rem;
-  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3rem; }
   .about-stats { display: flex; gap: 2.5rem; margin-top: 2rem; flex-wrap: wrap; }
-  .about-stat {
-    display: flex; flex-direction: column;
-    border-left: 3px solid var(--green-light);
-    padding-left: 1.25rem;
-  }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem; font-weight: 600;
-    color: var(--green-dark); line-height: 1;
-  }
+  .about-stat { display: flex; flex-direction: column; border-left: 3px solid var(--green); padding-left: 1.25rem; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 600; color: var(--navy); line-height: 1; }
   .stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
-
-  .about-values { display: flex; flex-direction: column; gap: 1.5rem; }
-  .value-item {
-    background: var(--cream);
-    border-radius: 8px;
-    padding: 1.25rem 1.5rem;
-    border-left: 4px solid var(--green-pale);
-  }
-  .value-item h4 { font-weight: 500; color: var(--green-dark); margin-bottom: 4px; }
+  .about-values { display: flex; flex-direction: column; gap: 1.25rem; }
+  .value-item { background: var(--cream); border-radius: 8px; padding: 1.25rem 1.5rem; border-left: 4px solid var(--green-pale); }
+  .value-item:nth-child(1) { border-left-color: var(--red); }
+  .value-item:nth-child(2) { border-left-color: var(--orange); }
+  .value-item:nth-child(3) { border-left-color: var(--green); }
+  .value-item:nth-child(4) { border-left-color: var(--blue); }
+  .value-item h4 { font-weight: 500; color: var(--navy); margin-bottom: 4px; }
   .value-item p { font-size: 0.9rem; color: var(--text-muted); font-weight: 300; }
 
   /* PRODUITS */
   #produits { background: var(--cream-dark); }
-  .produits-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-  .produit-card {
-    background: var(--white);
-    border-radius: 10px;
-    padding: 2rem;
-    border: 1px solid var(--border);
-    transition: transform 0.2s, border-color 0.2s;
-  }
-  .produit-card:hover { transform: translateY(-3px); border-color: var(--green-light); }
-  .produit-icon {
-    width: 52px; height: 52px;
-    background: var(--green-pale);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1.25rem;
-  }
-  .produit-icon svg { width: 28px; height: 28px; stroke: var(--green-dark); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-  .produit-card h3 { font-weight: 500; color: var(--green-dark); margin-bottom: 0.5rem; }
-  .produit-card p { font-size: 0.9rem; color: var(--text-muted); font-weight: 300; }
-  .produit-specs {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-    display: flex; flex-direction: column; gap: 4px;
-  }
-  .spec { font-size: 0.8rem; color: var(--green-mid); font-weight: 500; }
+  .produits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; }
+  .produit-card { background: var(--white); border-radius: 12px; padding: 2.25rem; border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
+  .produit-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+  .produit-card.card-standard::before { background: var(--green); }
+  .produit-card.card-mesure::before { background: linear-gradient(to right, var(--orange), var(--red)); }
+  .produit-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(43,61,82,0.1); }
+  .card-badge { display: inline-block; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px; border-radius: 50px; margin-bottom: 1.25rem; }
+  .card-badge.badge-standard { background: var(--green-pale); color: var(--green); }
+  .card-badge.badge-mesure { background: #FDEBD0; color: #c46e10; }
+  .produit-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; color: var(--navy); margin-bottom: 0.75rem; }
+  .produit-card p { font-size: 0.92rem; color: var(--text-muted); font-weight: 300; line-height: 1.7; }
+  .produit-specs { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 6px; }
+  .spec { font-size: 0.82rem; color: var(--navy-mid); font-weight: 500; display: flex; align-items: center; gap: 6px; }
+  .spec::before { content: '—'; color: var(--green); font-weight: 400; }
+  .produit-price { margin-top: 1.5rem; padding: 1rem 1.25rem; border-radius: 8px; }
+  .produit-price.price-standard { background: var(--green-pale); }
+  .produit-price.price-mesure { background: #FDEBD0; }
+  .price-amount { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 600; color: var(--navy); }
+  .price-unit { font-size: 0.85rem; color: var(--text-muted); font-weight: 300; }
+  .price-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; }
 
   /* CONFIGURATEUR */
   #configurateur { background: var(--white); }
-  .config-layout {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 4rem;
-    margin-top: 3rem;
-    align-items: start;
-  }
+  .config-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; margin-top: 3rem; align-items: start; }
   .config-form { display: flex; flex-direction: column; gap: 1.5rem; }
-
-  .form-card {
-    background: var(--cream);
-    border-radius: 10px;
-    padding: 1.75rem;
-    border: 1px solid var(--border);
-  }
-  .form-card-title {
-    font-size: 0.78rem; font-weight: 500; color: var(--green-mid);
-    text-transform: uppercase; letter-spacing: 0.12em;
-    margin-bottom: 1.25rem;
-  }
+  .form-card { background: var(--cream); border-radius: 10px; padding: 1.75rem; border: 1px solid var(--border); }
+  .form-card-title { font-size: 0.78rem; font-weight: 500; color: var(--navy-mid); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 1.25rem; }
   .form-group { display: flex; flex-direction: column; gap: 6px; }
   .form-group + .form-group { margin-top: 1rem; }
-  .form-group label {
-    font-size: 0.85rem; font-weight: 500;
-    color: var(--text-dark); letter-spacing: 0.02em;
-  }
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    padding: 11px 14px;
-    border: 1.5px solid var(--border);
-    border-radius: 6px;
-    background: var(--white);
-    color: var(--text-dark);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem;
-    transition: border-color 0.2s;
-    outline: none;
-    width: 100%;
-  }
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    border-color: var(--green-light);
-  }
+  .form-group label { font-size: 0.85rem; font-weight: 500; color: var(--text-dark); letter-spacing: 0.02em; }
+  .form-group input, .form-group select, .form-group textarea { padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 6px; background: var(--white); color: var(--text-dark); font-family: 'DM Sans', sans-serif; font-size: 0.95rem; transition: border-color 0.2s; outline: none; width: 100%; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--green); }
   .form-group textarea { resize: vertical; min-height: 90px; }
   .form-group small { font-size: 0.78rem; color: var(--text-muted); }
-
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
   .slider-row { display: flex; align-items: center; gap: 1rem; }
-  .slider-row input[type=range] {
-    flex: 1;
-    accent-color: var(--green-dark);
-    cursor: pointer;
-  }
-  .slider-val {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem; font-weight: 600;
-    color: var(--green-dark);
-    min-width: 64px; text-align: right;
-  }
-
+  .slider-row input[type=range] { flex: 1; accent-color: var(--navy); cursor: pointer; }
+  .slider-val { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; color: var(--navy); min-width: 64px; text-align: right; }
   .radio-group { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  .radio-option {
-    display: flex; align-items: center; gap: 8px;
-    background: var(--white);
-    border: 1.5px solid var(--border);
-    border-radius: 6px;
-    padding: 9px 16px;
-    cursor: pointer;
-    font-size: 0.875rem;
-    color: var(--text-dark);
-    transition: border-color 0.2s, background 0.2s;
-    user-select: none;
-  }
-  .radio-option input[type=radio] { accent-color: var(--green-dark); }
-  .radio-option:has(input:checked) {
-    border-color: var(--green-light);
-    background: var(--green-pale);
-    color: var(--green-dark);
-    font-weight: 500;
-  }
-
-  /* Netlify Forms hidden field */
+  .radio-option { display: flex; align-items: center; gap: 8px; background: var(--white); border: 1.5px solid var(--border); border-radius: 6px; padding: 9px 16px; cursor: pointer; font-size: 0.875rem; color: var(--text-dark); transition: border-color 0.2s, background 0.2s; user-select: none; }
+  .radio-option input[type=radio] { accent-color: var(--green); }
+  .radio-option:has(input:checked) { border-color: var(--green); background: var(--green-pale); color: var(--navy); font-weight: 500; }
   .hidden { display: none; }
 
-  .btn-submit {
-    width: 100%;
-    background: var(--green-dark);
-    color: var(--cream);
-    border: none; border-radius: 6px;
-    padding: 15px 28px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem; font-weight: 500;
-    cursor: pointer; letter-spacing: 0.02em;
-    transition: background 0.2s, transform 0.15s;
-    margin-top: 0.5rem;
-  }
-  .btn-submit:hover { background: var(--green-mid); transform: translateY(-1px); }
-  .form-disclaimer {
-    font-size: 0.78rem; color: var(--text-muted);
-    text-align: center; margin-top: 0.5rem;
-  }
+  .prix-estime { background: var(--navy); border-radius: 10px; padding: 1.5rem 1.75rem; display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden; }
+  .prix-estime::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue)); }
+  .prix-estime-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+  .prix-estime-val { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 600; color: #fff; }
+  .prix-estime-note { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+  .btn-submit { width: 100%; background: var(--green); color: #fff; border: none; border-radius: 6px; padding: 15px 28px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500; cursor: pointer; letter-spacing: 0.02em; transition: background 0.2s, transform 0.15s; margin-top: 0.5rem; }
+  .btn-submit:hover { background: #34c47f; transform: translateY(-1px); }
+  .form-disclaimer { font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem; }
 
   /* PREVIEW */
-  .config-preview {
-    background: var(--green-dark);
-    border-radius: 12px;
-    padding: 2.5rem;
-    position: sticky;
-    top: 90px;
-  }
-  .preview-title {
-    font-size: 0.75rem; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--green-light);
-    margin-bottom: 1.5rem; font-weight: 500;
-  }
-  .plexi-preview-visual {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 160px;
-    margin-bottom: 2rem;
-    gap: 6px;
-  }
-  .plexi-bar {
-    background: rgba(180,220,200,0.18);
-    border: 1.5px solid rgba(180,220,200,0.45);
-    border-radius: 3px;
-    position: relative;
-    height: 100px;
-    transition: width 0.35s ease;
-    flex-shrink: 0;
-  }
-  .plexi-bar-sticker {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70%; height: 28%;
-    background: rgba(74,140,106,0.45);
-    border-radius: 2px;
-  }
-  .preview-specs { display: flex; flex-direction: column; gap: 0; }
-  .preview-spec-row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 9px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-  }
+  .config-preview { background: var(--navy); border-radius: 12px; padding: 2.5rem; position: sticky; top: 100px; overflow: hidden; }
+  .config-preview::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue)); }
+  .preview-title { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); margin-bottom: 1.5rem; font-weight: 500; }
+  .plexi-preview-visual { display: flex; justify-content: center; align-items: flex-end; height: 160px; margin-bottom: 2rem; gap: 6px; }
+  .plexi-bar { background: rgba(180,220,200,0.18); border: 1.5px solid rgba(180,220,200,0.45); border-radius: 3px; position: relative; height: 100px; transition: width 0.35s ease; flex-shrink: 0; }
+  .plexi-bar-sticker { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70%; height: 28%; background: rgba(61,170,114,0.5); border-radius: 2px; }
+  .preview-specs { display: flex; flex-direction: column; }
+  .preview-spec-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
   .preview-spec-row:last-child { border-bottom: none; }
-  .preview-spec-label { font-size: 0.85rem; color: rgba(245,240,232,0.55); }
-  .preview-spec-val { font-size: 0.9rem; color: var(--cream); font-weight: 500; }
+  .preview-spec-label { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+  .preview-spec-val { font-size: 0.9rem; color: #F4F6F8; font-weight: 500; }
 
   /* CONTACT */
-  .contact-bar {
-    background: var(--green-dark);
-    padding: 3.5rem 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-  }
-  .contact-bar h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem; font-weight: 600;
-    color: var(--cream);
-  }
-  .contact-bar p { color: rgba(245,240,232,0.55); font-size: 0.9rem; margin-top: 5px; }
+  .contact-bar { background: var(--navy); padding: 3.5rem 4rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; border-top: 3px solid transparent; border-image: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue)) 1; }
+  .contact-bar h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: #F4F6F8; }
+  .contact-bar p { color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-top: 5px; }
   .contact-info { display: flex; gap: 2.5rem; flex-wrap: wrap; }
   .contact-item { display: flex; flex-direction: column; }
-  .contact-item-label {
-    font-size: 0.68rem; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--green-light); margin-bottom: 4px;
-  }
-  .contact-item-val { color: var(--cream); font-size: 0.95rem; }
+  .contact-item-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); margin-bottom: 4px; }
+  .contact-item-val { color: #F4F6F8; font-size: 0.95rem; }
 
   /* FOOTER */
-  footer {
-    background: #111C16;
-    padding: 1.75rem 4rem;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    color: rgba(245,240,232,0.35); font-size: 1.1rem;
-  }
-  .footer-copy { font-size: 0.78rem; color: rgba(245,240,232,0.22); }
-
-  /* SUCCESS PAGE */
-  .success-page {
-    display: none;
-    min-height: 60vh;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 4rem;
-    background: var(--white);
-  }
-  .success-icon {
-    width: 64px; height: 64px;
-    background: var(--green-pale);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1.5rem;
-  }
-  .success-icon svg { width: 32px; height: 32px; stroke: var(--green-dark); fill: none; stroke-width: 2; }
-  .success-page h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem; color: var(--green-dark); margin-bottom: 0.75rem;
-  }
-  .success-page p { color: var(--text-muted); max-width: 420px; font-weight: 300; }
+  footer { background: #1A2533; padding: 1.75rem 4rem; display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo img { height: 40px; width: auto; opacity: 0.5; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    nav { padding: 0 1.5rem; }
-    .nav-links { gap: 1.25rem; }
-
+    nav { padding: 0 1.5rem; height: 72px; }
+    .nav-logo img { height: 50px; }
     .hero { grid-template-columns: 1fr; padding: 4rem 1.5rem 5rem; }
     .hero-visual { display: none; }
-
     section { padding: 3.5rem 1.5rem; }
-
-    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-grid, .config-layout { grid-template-columns: 1fr; gap: 2.5rem; }
     .produits-grid { grid-template-columns: 1fr; }
-    .config-layout { grid-template-columns: 1fr; gap: 2rem; }
     .config-preview { position: static; }
-
     .contact-bar { flex-direction: column; align-items: flex-start; padding: 3rem 1.5rem; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.75rem 1.5rem; }
+    footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.75rem 1.5rem; }
     .form-row { grid-template-columns: 1fr; }
+    .prix-estime { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
   }
 </style>
 </head>
@@ -476,11 +196,11 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <img src="logo.jpg" alt="Fairplex – le réflexe antivol" style="height:44px; width:auto; display:block;">
+    <img src="logo.jpg" alt="Fairplex – le réflexe antivol">
   </a>
   <ul class="nav-links">
     <li><a href="#about">À propos</a></li>
-    <li><a href="#produits">Nos produits</a></li>
+    <li><a href="#produits">Nos offres</a></li>
     <li><a href="#configurateur">Devis</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -489,9 +209,9 @@
 <!-- HERO -->
 <section class="hero">
   <div>
-    <div class="hero-tag">Protection &amp; Hygiène en commerce</div>
+    <div class="hero-tag">Le réflexe antivol pour vos commerces</div>
     <h1>Le plexiglass qui <em>protège</em> vos produits.</h1>
-    <p>Fairplex conçoit des protections en plexiglass sur mesure pour les étagères de pharmacies, supermarchés et boutiques. Simple, propre, efficace.</p>
+    <p>Fairplex conçoit des protections d'étagères en plexiglass, pratiques, élégantes et discrètes — pour tous les commerces qui en ont assez des vols.</p>
     <a href="#configurateur" class="btn-primary">Faire une demande de devis</a>
   </div>
   <div class="hero-visual">
@@ -508,22 +228,22 @@
 <!-- À PROPOS -->
 <section id="about">
   <div class="section-tag">Qui sommes-nous</div>
-  <h2 class="section-title">Trois pharmaciens,<br>une solution de terrain.</h2>
+  <h2 class="section-title">Trois professionnels de terrain,<br>une solution concrète.</h2>
   <div class="about-grid">
     <div>
-      <p style="font-size:1.05rem; color:var(--text-dark); line-height:1.8; font-style:italic; border-left:4px solid var(--green-light); padding-left:1.25rem; margin-bottom:1.5rem;">
+      <p style="font-size:1.05rem; color:var(--text-dark); line-height:1.85; font-style:italic; border-left:4px solid var(--green); padding-left:1.25rem; margin-bottom:1.5rem;">
         « Avant d'être un site e-commerce, ce projet est une histoire de terrain. »
       </p>
       <p style="color:var(--text-muted); font-weight:300; font-size:0.97rem; line-height:1.8;">
         Nous sommes trois pharmaciens, confrontés chaque jour aux mêmes problématiques que nos confrères : les vols, les produits déplacés, les rayons à refaire. Nous voulions une solution simple, élégante et efficace.
       </p>
       <p style="color:var(--text-muted); font-weight:300; font-size:0.97rem; line-height:1.8; margin-top:1rem;">
-        Le déclic est venu après plusieurs vols sur une même gamme de produits en quelques semaines. Aujourd'hui notre mission est simple : proposer des protections d'étagères, pratiques, élégantes, discrètes et faciles à installer.
+        Le déclic est venu après plusieurs vols sur une même gamme de produits en quelques semaines. Aujourd'hui notre mission est simple : proposer des protections d'étagères, pratiques, élégantes, discrètes et faciles à installer — pour tous les commerces.
       </p>
       <div class="about-stats">
         <div class="about-stat">
           <span class="stat-num">3</span>
-          <span class="stat-label">pharmaciens fondateurs</span>
+          <span class="stat-label">fondateurs</span>
         </div>
         <div class="about-stat">
           <span class="stat-num">4mm</span>
@@ -545,12 +265,12 @@
         <p>Le plexiglass transparent se fond dans votre rayon sans masquer vos produits. Vos clients voient, mais ne prennent plus.</p>
       </div>
       <div class="value-item">
-        <h4>Sur mesure</h4>
-        <p>Vous choisissez la largeur exacte dont vous avez besoin. Nous découpons à la précision du millimètre.</p>
+        <h4>Dimensions adaptées</h4>
+        <p>Format standard pour une installation rapide, ou sur mesure pour les configurations atypiques. Vous choisissez.</p>
       </div>
       <div class="value-item">
-        <h4>Pensé par des professionnels</h4>
-        <p>Conçu par des pharmaciens pour des pharmaciens — et tous les commerces qui font face aux mêmes défis.</p>
+        <h4>Pour tous les commerces</h4>
+        <p>Conçu par des professionnels du commerce de détail, pour tous ceux qui font face aux mêmes défis au quotidien.</p>
       </div>
     </div>
   </div>
@@ -558,101 +278,114 @@
 
 <!-- PRODUITS -->
 <section id="produits">
-  <div class="section-tag">Nos produits</div>
-  <h2 class="section-title">Des protections pensées<br>pour le commerce.</h2>
-  <p class="section-lead" style="margin-top:0.5rem;">Chaque protection est découpée à la demande à partir de plaques de plexiglass haute qualité.</p>
+  <div class="section-tag">Nos offres</div>
+  <h2 class="section-title">Standard ou sur mesure,<br>il y a une solution pour vous.</h2>
+  <p class="section-lead" style="margin-top:0.5rem;">Deux offres claires, deux niveaux de personnalisation.</p>
+
   <div class="produits-grid">
-    <div class="produit-card">
-      <div class="produit-icon">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
-      </div>
-      <h3>Protection standard</h3>
-      <p>La pièce maîtresse. Hauteur fixe 20 cm, largeur au choix, épaisseur 4 mm. Idéale pour toutes les étagères de pharmacie et de supermarché.</p>
+    <div class="produit-card card-standard">
+      <span class="card-badge badge-standard">Offre standard</span>
+      <h3>Protection étagère standard</h3>
+      <p>Notre protection prête à installer, pensée pour correspondre aux étagères les plus courantes dans les commerces. Transparente, propre et efficace — aucune modification nécessaire.</p>
       <div class="produit-specs">
         <span class="spec">Hauteur : 20 cm</span>
+        <span class="spec">Profondeur : 15 cm</span>
+        <span class="spec">Largeur : 80 cm</span>
         <span class="spec">Épaisseur : 4 mm</span>
-        <span class="spec">Largeur : de 5 à 120 cm</span>
+        <span class="spec">Plexiglass transparent haute qualité</span>
+        <span class="spec">Installation immédiate, sans outil</span>
+      </div>
+      <div class="produit-price price-standard">
+        <div style="display:flex; align-items:baseline; gap:0.4rem;">
+          <span class="price-amount">30 €</span>
+          <span class="price-unit">/ protection HT</span>
+        </div>
+        <p class="price-note">Tarif dégressif selon quantité</p>
       </div>
     </div>
-    <div class="produit-card">
-      <div class="produit-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      </div>
-      <h3>Sur mesure</h3>
-      <p>Vous avez des dimensions atypiques ? Hauteur, largeur ou épaisseur différente ? Nous réalisons votre protection sur mesure après étude de votre demande.</p>
+
+    <div class="produit-card card-mesure">
+      <span class="card-badge badge-mesure">Sur mesure — +5 € / pièce</span>
+      <h3>Protection sur mesure</h3>
+      <p>Vos étagères ont des dimensions atypiques ? Largeur différente, configuration particulière ? Nous découpons au millimètre selon vos besoins, après étude de votre demande sous 24h.</p>
       <div class="produit-specs">
-        <span class="spec">Dimensions libres</span>
-        <span class="spec">Devis personnalisé</span>
-        <span class="spec">Délai à confirmer</span>
+        <span class="spec">Largeur libre — toutes dimensions</span>
+        <span class="spec">Hauteur et profondeur ajustables</span>
+        <span class="spec">Épaisseur au choix</span>
+        <span class="spec">Option autocollant personnalisé</span>
+        <span class="spec">Devis confirmé sous 24h</span>
       </div>
-    </div>
-    <div class="produit-card">
-      <div class="produit-icon">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><rect x="7" y="10" width="10" height="6" rx="1"/><line x1="9" y1="10" x2="9" y2="8"/><line x1="15" y1="10" x2="15" y2="8"/></svg>
-      </div>
-      <h3>Autocollant personnalisé</h3>
-      <p>Option disponible pour apposer votre logo, vos couleurs ou un message commercial directement sur la surface du plexiglass. Impression haute qualité.</p>
-      <div class="produit-specs">
-        <span class="spec">Logo ou texte</span>
-        <span class="spec">Découpe à la forme</span>
-        <span class="spec">En option sur toute commande</span>
+      <div class="produit-price price-mesure">
+        <div style="display:flex; align-items:baseline; gap:0.4rem;">
+          <span class="price-amount">35 €</span>
+          <span class="price-unit">/ protection HT</span>
+        </div>
+        <p class="price-note">Tarif dégressif selon quantité</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONFIGURATEUR + FORMULAIRE NETLIFY -->
+<!-- CONFIGURATEUR -->
 <section id="configurateur" style="background:var(--cream-dark);">
   <div class="section-tag">Configurateur &amp; Devis</div>
-  <h2 class="section-title">Configurez votre protection<br>et demandez un devis.</h2>
+  <h2 class="section-title">Configurez votre commande<br>et demandez un devis.</h2>
   <p class="section-lead" style="margin-top:0.5rem;">Renseignez vos dimensions, vos options et vos coordonnées. Nous vous répondons sous 24h.</p>
 
   <div class="config-layout">
-
-    <!-- FORMULAIRE — Netlify Forms : l'attribut data-netlify="true" suffit -->
-    <form
-      name="devis-fairplex"
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      action="/merci.html"
-      class="config-form"
-      id="devis-form"
-    >
-      <!-- Champ caché obligatoire Netlify -->
+    <form name="devis-fairplex" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html" class="config-form" id="devis-form">
       <input type="hidden" name="form-name" value="devis-fairplex">
-      <!-- Honeypot anti-spam -->
       <p class="hidden"><label>Ne pas remplir : <input name="bot-field"></label></p>
+
+      <!-- TYPE OFFRE -->
+      <div class="form-card">
+        <p class="form-card-title">Type d'offre</p>
+        <div class="form-group">
+          <label>Quelle offre vous convient ?</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="offre" value="Standard — 30€/pièce" checked onchange="updateOffre('standard')">
+              Standard — 30 €/pièce
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="offre" value="Sur mesure — 35€/pièce" onchange="updateOffre('mesure')">
+              Sur mesure — 35 €/pièce
+            </label>
+          </div>
+        </div>
+      </div>
 
       <!-- DIMENSIONS -->
       <div class="form-card">
         <p class="form-card-title">Dimensions</p>
-
         <div class="form-group">
-          <label for="largeur">Largeur souhaitée (cm)</label>
+          <label for="largeur">Largeur (cm)</label>
           <div class="slider-row">
-            <input type="range" id="slider-width" name="largeur_slider"
-              min="5" max="120" value="30" step="1"
-              oninput="updateWidth(this.value)" aria-label="Largeur en cm">
-            <span class="slider-val" id="display-width">30 cm</span>
+            <input type="range" id="slider-width" name="largeur_slider" min="5" max="200" value="80" step="1" oninput="updateWidth(this.value)" aria-label="Largeur en cm">
+            <span class="slider-val" id="display-width">80 cm</span>
           </div>
-          <input type="hidden" name="largeur" id="input-largeur" value="30 cm">
-          <small>De 5 cm à 120 cm — précisez une valeur hors plage dans les commentaires</small>
+          <input type="hidden" name="largeur" id="input-largeur" value="80 cm">
+          <small>Standard : 80 cm — Sur mesure : toute largeur possible</small>
         </div>
-
         <div class="form-group">
           <label for="hauteur">Hauteur</label>
           <select id="hauteur" name="hauteur" onchange="updateSpec()">
-            <option value="20cm standard">Standard — 20 cm (recommandé)</option>
-            <option value="sur mesure">Sur mesure — préciser dans les commentaires</option>
+            <option value="20cm standard">Standard — 20 cm</option>
+            <option value="sur mesure">Sur mesure — à préciser dans les commentaires</option>
           </select>
         </div>
-
+        <div class="form-group">
+          <label for="profondeur">Profondeur</label>
+          <select id="profondeur" name="profondeur" onchange="updateSpec()">
+            <option value="15cm standard">Standard — 15 cm</option>
+            <option value="sur mesure">Sur mesure — à préciser dans les commentaires</option>
+          </select>
+        </div>
         <div class="form-group">
           <label for="epaisseur">Épaisseur</label>
           <select id="epaisseur" name="epaisseur" onchange="updateSpec()">
             <option value="4mm standard">Standard — 4 mm</option>
-            <option value="sur mesure">Sur mesure — préciser dans les commentaires</option>
+            <option value="sur mesure">Sur mesure — à préciser dans les commentaires</option>
           </select>
         </div>
       </div>
@@ -660,33 +393,35 @@
       <!-- OPTIONS -->
       <div class="form-card">
         <p class="form-card-title">Options</p>
-
         <div class="form-group">
           <label>Autocollant personnalisé</label>
           <div class="radio-group">
             <label class="radio-option">
-              <input type="radio" name="autocollant" value="Non" checked onchange="updateSticker(false)">
-              Non merci
+              <input type="radio" name="autocollant" value="Non" checked onchange="updateSticker(false)"> Non merci
             </label>
             <label class="radio-option">
-              <input type="radio" name="autocollant" value="Oui" onchange="updateSticker(true)">
-              Oui, je veux des autocollants
+              <input type="radio" name="autocollant" value="Oui" onchange="updateSticker(true)"> Oui, avec autocollant
             </label>
           </div>
         </div>
-
         <div class="form-group">
-          <label for="quantite">Quantité de protections</label>
-          <input type="number" id="quantite" name="quantite"
-            min="1" value="10" placeholder="Ex : 20"
-            oninput="updateSpec()">
+          <label for="quantite">Quantité souhaitée</label>
+          <input type="number" id="quantite" name="quantite" min="1" value="10" placeholder="Ex : 20" oninput="updateSpec()">
         </div>
+      </div>
+
+      <!-- ESTIMATION -->
+      <div class="prix-estime">
+        <div>
+          <div class="prix-estime-label">Estimation totale</div>
+          <div class="prix-estime-note">HT — hors options autocollant</div>
+        </div>
+        <div class="prix-estime-val" id="prix-total">300 €</div>
       </div>
 
       <!-- COORDONNÉES -->
       <div class="form-card">
         <p class="form-card-title">Vos coordonnées</p>
-
         <div class="form-row">
           <div class="form-group">
             <label for="prenom">Prénom *</label>
@@ -697,26 +432,21 @@
             <input type="text" id="nom" name="nom" placeholder="Dupont" required>
           </div>
         </div>
-
         <div class="form-group">
-          <label for="societe">Société / Enseigne</label>
-          <input type="text" id="societe" name="societe" placeholder="Pharmacie du Centre">
+          <label for="societe">Commerce / Enseigne</label>
+          <input type="text" id="societe" name="societe" placeholder="Mon Commerce">
         </div>
-
         <div class="form-group">
           <label for="email">Email *</label>
-          <input type="email" id="email" name="email" placeholder="jean.dupont@pharmacie.fr" required>
+          <input type="email" id="email" name="email" placeholder="contact@moncommerce.fr" required>
         </div>
-
         <div class="form-group">
           <label for="telephone">Téléphone</label>
           <input type="tel" id="telephone" name="telephone" placeholder="06 00 00 00 00">
         </div>
-
         <div class="form-group">
           <label for="commentaires">Commentaires / Précisions</label>
-          <textarea id="commentaires" name="commentaires"
-            placeholder="Dimensions particulières, délais souhaités, questions..."></textarea>
+          <textarea id="commentaires" name="commentaires" placeholder="Dimensions particulières, délais souhaités, questions..."></textarea>
         </div>
       </div>
 
@@ -724,22 +454,30 @@
       <p class="form-disclaimer">Vos données sont utilisées uniquement pour traiter votre demande. Réponse sous 24h.</p>
     </form>
 
-    <!-- APERÇU EN TEMPS RÉEL -->
+    <!-- APERÇU -->
     <div class="config-preview">
-      <div class="preview-title">Aperçu de votre commande</div>
+      <div class="preview-title">Récapitulatif de votre commande</div>
       <div class="plexi-preview-visual" id="preview-visual"></div>
       <div class="preview-specs">
         <div class="preview-spec-row">
+          <span class="preview-spec-label">Offre</span>
+          <span class="preview-spec-val" id="pv-offre">Standard</span>
+        </div>
+        <div class="preview-spec-row">
           <span class="preview-spec-label">Largeur</span>
-          <span class="preview-spec-val" id="pv-width">30 cm</span>
+          <span class="preview-spec-val" id="pv-width">80 cm</span>
         </div>
         <div class="preview-spec-row">
           <span class="preview-spec-label">Hauteur</span>
-          <span class="preview-spec-val" id="pv-height">20 cm (standard)</span>
+          <span class="preview-spec-val" id="pv-height">20 cm</span>
+        </div>
+        <div class="preview-spec-row">
+          <span class="preview-spec-label">Profondeur</span>
+          <span class="preview-spec-val" id="pv-profondeur">15 cm</span>
         </div>
         <div class="preview-spec-row">
           <span class="preview-spec-label">Épaisseur</span>
-          <span class="preview-spec-val" id="pv-thick">4 mm (standard)</span>
+          <span class="preview-spec-val" id="pv-thick">4 mm</span>
         </div>
         <div class="preview-spec-row">
           <span class="preview-spec-label">Autocollant</span>
@@ -748,6 +486,10 @@
         <div class="preview-spec-row">
           <span class="preview-spec-label">Quantité</span>
           <span class="preview-spec-val" id="pv-qty">10 protections</span>
+        </div>
+        <div class="preview-spec-row" style="margin-top:0.5rem; padding-top:0.75rem; border-top:1px solid rgba(255,255,255,0.15) !important;">
+          <span class="preview-spec-label" style="color:rgba(255,255,255,0.8); font-weight:500;">Total estimé HT</span>
+          <span class="preview-spec-val" id="pv-prix" style="color:#3DAA72; font-size:1.15rem;">300 €</span>
         </div>
       </div>
     </div>
@@ -777,21 +519,39 @@
 </div>
 
 <footer>
-  <div class="footer-logo">fairplex</div>
+  <div class="footer-logo">
+    <img src="logo.jpg" alt="Fairplex">
+  </div>
   <div class="footer-copy">© 2025 Fairplex — Tous droits réservés</div>
 </footer>
 
 <script>
   let stickerOn = false;
+  let offreMesure = false;
+
+  function getPrixUnit() { return offreMesure ? 35 : 30; }
+
+  function updatePrix() {
+    const q = parseInt(document.getElementById('quantite').value) || 0;
+    const total = q * getPrixUnit();
+    const fmt = total.toLocaleString('fr-FR') + ' €';
+    document.getElementById('prix-total').textContent = fmt;
+    document.getElementById('pv-prix').textContent = fmt;
+  }
+
+  function updateOffre(type) {
+    offreMesure = (type === 'mesure');
+    document.getElementById('pv-offre').textContent = offreMesure ? 'Sur mesure' : 'Standard';
+    updatePrix();
+  }
 
   function buildPreview() {
     const visual = document.getElementById('preview-visual');
     visual.innerHTML = '';
     const qty = Math.min(Math.max(parseInt(document.getElementById('quantite').value) || 1, 1), 99);
     const width = parseInt(document.getElementById('slider-width').value);
-    const barW = Math.max(22, Math.min(72, Math.round(width * 0.55)));
+    const barW = Math.max(18, Math.min(68, Math.round(width * 0.35)));
     const shown = Math.min(qty, 7);
-
     for (let i = 0; i < shown; i++) {
       const bar = document.createElement('div');
       bar.className = 'plexi-bar';
@@ -805,7 +565,7 @@
     }
     if (qty > 7) {
       const more = document.createElement('div');
-      more.style.cssText = 'display:flex;align-items:center;padding-bottom:8px;color:rgba(245,240,232,0.4);font-size:0.8rem;';
+      more.style.cssText = 'display:flex;align-items:center;padding-bottom:8px;color:rgba(255,255,255,0.35);font-size:0.8rem;';
       more.textContent = '+' + (qty - 7);
       visual.appendChild(more);
     }
@@ -826,16 +586,19 @@
 
   function updateSpec() {
     const h = document.getElementById('hauteur').value;
+    const p = document.getElementById('profondeur').value;
     const t = document.getElementById('epaisseur').value;
     const q = parseInt(document.getElementById('quantite').value) || 0;
-    document.getElementById('pv-height').textContent = h === 'sur mesure' ? 'Sur mesure' : '20 cm (standard)';
-    document.getElementById('pv-thick').textContent = t === 'sur mesure' ? 'Sur mesure' : '4 mm (standard)';
+    document.getElementById('pv-height').textContent = h === 'sur mesure' ? 'Sur mesure' : '20 cm';
+    document.getElementById('pv-profondeur').textContent = p === 'sur mesure' ? 'Sur mesure' : '15 cm';
+    document.getElementById('pv-thick').textContent = t === 'sur mesure' ? 'Sur mesure' : '4 mm';
     document.getElementById('pv-qty').textContent = q + ' protection' + (q > 1 ? 's' : '');
+    updatePrix();
     buildPreview();
   }
 
   buildPreview();
+  updatePrix();
 </script>
-
 </body>
 </html>
