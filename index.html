@@ -10,16 +10,16 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --cream: #F5F0E8;
-    --cream-dark: #EDE6D6;
-    --green-dark: #1E3A2F;
-    --green-mid: #2E5944;
-    --green-light: #4A8C6A;
-    --green-pale: #D4E6DC;
-    --text-dark: #1A2B22;
-    --text-muted: #5A7265;
-    --border: #C8D8CC;
-    --white: #FDFCF8;
+    --cream: #F4F6F8;
+    --cream-dark: #E8ECF0;
+    --green-dark: #2B3D52;
+    --green-mid: #3A5268;
+    --green-light: #3DAA72;
+    --green-pale: #D6EFE2;
+    --text-dark: #1E2D3D;
+    --text-muted: #5A6E82;
+    --border: #C5D3DE;
+    --white: #FFFFFF;
   }
 
   html { scroll-behavior: smooth; }
@@ -475,7 +475,9 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">fair<span>plex</span></a>
+  <a href="#" class="nav-logo">
+    <img src="logo.jpg" alt="Fairplex – le réflexe antivol" style="height:44px; width:auto; display:block;">
+  </a>
   <ul class="nav-links">
     <li><a href="#about">À propos</a></li>
     <li><a href="#produits">Nos produits</a></li>
@@ -506,12 +508,23 @@
 <!-- À PROPOS -->
 <section id="about">
   <div class="section-tag">Qui sommes-nous</div>
-  <h2 class="section-title">Une équipe locale,<br>un savoir-faire précis.</h2>
+  <h2 class="section-title">Trois pharmaciens,<br>une solution de terrain.</h2>
   <div class="about-grid">
     <div>
-      <p class="section-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fondée en 2024 par une équipe de passionnés, Fairplex est née d'un constat simple : les commerces manquent de solutions de protection pratiques, esthétiques et abordables pour leurs linéaires.</p>
-      <p style="margin-top:1rem; color:var(--text-muted); font-weight:300; font-size:0.95rem;">Notre mission : vous fournir des protections en plexiglass de qualité, découpées avec précision, livrées rapidement. Que vous soyez pharmacien, gérant de supermarché ou boutiquier, nous avons la solution adaptée.</p>
+      <p style="font-size:1.05rem; color:var(--text-dark); line-height:1.8; font-style:italic; border-left:4px solid var(--green-light); padding-left:1.25rem; margin-bottom:1.5rem;">
+        « Avant d'être un site e-commerce, ce projet est une histoire de terrain. »
+      </p>
+      <p style="color:var(--text-muted); font-weight:300; font-size:0.97rem; line-height:1.8;">
+        Nous sommes trois pharmaciens, confrontés chaque jour aux mêmes problématiques que nos confrères : les vols, les produits déplacés, les rayons à refaire. Nous voulions une solution simple, élégante et efficace.
+      </p>
+      <p style="color:var(--text-muted); font-weight:300; font-size:0.97rem; line-height:1.8; margin-top:1rem;">
+        Le déclic est venu après plusieurs vols sur une même gamme de produits en quelques semaines. Aujourd'hui notre mission est simple : proposer des protections d'étagères, pratiques, élégantes, discrètes et faciles à installer.
+      </p>
       <div class="about-stats">
+        <div class="about-stat">
+          <span class="stat-num">3</span>
+          <span class="stat-label">pharmaciens fondateurs</span>
+        </div>
         <div class="about-stat">
           <span class="stat-num">4mm</span>
           <span class="stat-label">épaisseur standard</span>
@@ -520,28 +533,24 @@
           <span class="stat-num">20cm</span>
           <span class="stat-label">hauteur fixe</span>
         </div>
-        <div class="about-stat">
-          <span class="stat-num">∞</span>
-          <span class="stat-label">largeurs possibles</span>
-        </div>
       </div>
     </div>
     <div class="about-values">
       <div class="value-item">
-        <h4>Qualité garantie</h4>
-        <p>Plexiglass de grade alimentaire, résistant aux UV et aux produits désinfectants courants.</p>
+        <h4>Simple à installer</h4>
+        <p>Pas d'outils, pas de technicien. Nos protections s'installent en quelques secondes sur n'importe quelle étagère.</p>
       </div>
       <div class="value-item">
-        <h4>Découpe sur mesure</h4>
+        <h4>Élégante &amp; discrète</h4>
+        <p>Le plexiglass transparent se fond dans votre rayon sans masquer vos produits. Vos clients voient, mais ne prennent plus.</p>
+      </div>
+      <div class="value-item">
+        <h4>Sur mesure</h4>
         <p>Vous choisissez la largeur exacte dont vous avez besoin. Nous découpons à la précision du millimètre.</p>
       </div>
       <div class="value-item">
-        <h4>Livraison rapide</h4>
-        <p>Expédition sous 3 à 5 jours ouvrés après confirmation de commande partout en France métropolitaine.</p>
-      </div>
-      <div class="value-item">
-        <h4>Personnalisation</h4>
-        <p>Option autocollant personnalisé pour apposer votre logo ou message directement sur le plexi.</p>
+        <h4>Pensé par des professionnels</h4>
+        <p>Conçu par des pharmaciens pour des pharmaciens — et tous les commerces qui font face aux mêmes défis.</p>
       </div>
     </div>
   </div>
