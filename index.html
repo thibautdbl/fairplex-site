@@ -39,7 +39,7 @@
     border-bottom: 3px solid transparent;
     border-image: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue)) 1;
   }
-  .nav-logo img { height: 60px; width: auto; display: block; }
+  .nav-logo img { height: 68px; width: auto; display: block; filter: brightness(0) invert(1); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.875rem; font-weight: 400; letter-spacing: 0.03em; transition: color 0.2s; }
   .nav-links a:hover { color: #fff; }
@@ -211,7 +211,7 @@
   <div>
     <div class="hero-tag">Le réflexe antivol pour vos commerces</div>
     <h1>Le plexiglass qui <em>protège</em> vos produits.</h1>
-    <p>Fairplex conçoit des protections d'étagères en plexiglass, pratiques, élégantes et discrètes — pour tous les commerces qui en ont assez des vols.</p>
+    <p>Fairplex conçoit des protections d'étagères en plexiglass, pratiques, élégantes et discrètes — pour tous les commerces.</p>
     <a href="#configurateur" class="btn-primary">Faire une demande de devis</a>
   </div>
   <div class="hero-visual">
@@ -244,14 +244,6 @@
         <div class="about-stat">
           <span class="stat-num">3</span>
           <span class="stat-label">fondateurs</span>
-        </div>
-        <div class="about-stat">
-          <span class="stat-num">4mm</span>
-          <span class="stat-label">épaisseur standard</span>
-        </div>
-        <div class="about-stat">
-          <span class="stat-num">20cm</span>
-          <span class="stat-label">hauteur fixe</span>
         </div>
       </div>
     </div>
@@ -358,35 +350,60 @@
       <!-- DIMENSIONS -->
       <div class="form-card">
         <p class="form-card-title">Dimensions</p>
-        <div class="form-group">
-          <label for="largeur">Largeur (cm)</label>
-          <div class="slider-row">
-            <input type="range" id="slider-width" name="largeur_slider" min="5" max="200" value="80" step="1" oninput="updateWidth(this.value)" aria-label="Largeur en cm">
-            <span class="slider-val" id="display-width">80 cm</span>
+
+        <!-- STANDARD : dimensions fixes affichées en lecture seule -->
+        <div id="dims-standard">
+          <div style="background:var(--green-pale); border-radius:8px; padding:1rem 1.25rem; display:flex; flex-direction:column; gap:6px;">
+            <p style="font-size:0.78rem; color:var(--green); font-weight:500; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">Dimensions fixes — offre standard</p>
+            <span style="font-size:0.9rem; color:var(--navy);">Largeur : <strong>80 cm</strong></span>
+            <span style="font-size:0.9rem; color:var(--navy);">Hauteur : <strong>20 cm</strong></span>
+            <span style="font-size:0.9rem; color:var(--navy);">Profondeur : <strong>15 cm</strong></span>
+            <span style="font-size:0.9rem; color:var(--navy);">Épaisseur : <strong>4 mm</strong></span>
           </div>
-          <input type="hidden" name="largeur" id="input-largeur" value="80 cm">
-          <small>Standard : 80 cm — Sur mesure : toute largeur possible</small>
+          <input type="hidden" name="largeur" value="80 cm">
+          <input type="hidden" name="hauteur" value="20cm standard">
+          <input type="hidden" name="profondeur" value="15cm standard">
+          <input type="hidden" name="epaisseur" value="4mm standard">
         </div>
-        <div class="form-group">
-          <label for="hauteur">Hauteur</label>
-          <select id="hauteur" name="hauteur" onchange="updateSpec()">
-            <option value="20cm standard">Standard — 20 cm</option>
-            <option value="sur mesure">Sur mesure — à préciser dans les commentaires</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="profondeur">Profondeur</label>
-          <select id="profondeur" name="profondeur" onchange="updateSpec()">
-            <option value="15cm standard">Standard — 15 cm</option>
-            <option value="sur mesure">Sur mesure — à préciser dans les commentaires</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="epaisseur">Épaisseur</label>
-          <select id="epaisseur" name="epaisseur" onchange="updateSpec()">
-            <option value="4mm standard">Standard — 4 mm</option>
-            <option value="sur mesure">Sur mesure — à préciser dans les commentaires</option>
-          </select>
+
+        <!-- SUR MESURE : tous les champs modifiables, masqués par défaut -->
+        <div id="dims-mesure" style="display:none; flex-direction:column; gap:0;">
+          <div class="form-group">
+            <label>Largeur (cm)</label>
+            <div class="slider-row">
+              <input type="range" id="slider-width" name="largeur_slider" min="5" max="200" value="80" step="1" oninput="updateWidth(this.value)">
+              <span class="slider-val" id="display-width">80 cm</span>
+            </div>
+            <input type="hidden" name="largeur" id="input-largeur" value="80 cm">
+            <small>De 5 à 200 cm</small>
+          </div>
+          <div class="form-group">
+            <label>Hauteur (cm)</label>
+            <div class="slider-row">
+              <input type="range" id="slider-hauteur" name="hauteur_slider" min="5" max="60" value="20" step="1" oninput="updateHauteur(this.value)">
+              <span class="slider-val" id="display-hauteur">20 cm</span>
+            </div>
+            <input type="hidden" name="hauteur" id="input-hauteur" value="20 cm">
+            <small>De 5 à 60 cm</small>
+          </div>
+          <div class="form-group">
+            <label>Profondeur (cm)</label>
+            <div class="slider-row">
+              <input type="range" id="slider-profondeur" name="profondeur_slider" min="5" max="60" value="15" step="1" oninput="updateProfondeur(this.value)">
+              <span class="slider-val" id="display-profondeur">15 cm</span>
+            </div>
+            <input type="hidden" name="profondeur" id="input-profondeur" value="15 cm">
+            <small>De 5 à 60 cm</small>
+          </div>
+          <div class="form-group">
+            <label>Épaisseur (mm)</label>
+            <div class="slider-row">
+              <input type="range" id="slider-epaisseur" name="epaisseur_slider" min="2" max="10" value="4" step="1" oninput="updateEpaisseur(this.value)">
+              <span class="slider-val" id="display-epaisseur">4 mm</span>
+            </div>
+            <input type="hidden" name="epaisseur" id="input-epaisseur" value="4 mm">
+            <small>De 2 à 10 mm</small>
+          </div>
         </div>
       </div>
 
@@ -542,14 +559,35 @@
   function updateOffre(type) {
     offreMesure = (type === 'mesure');
     document.getElementById('pv-offre').textContent = offreMesure ? 'Sur mesure' : 'Standard';
+
+    const dimsMesure = document.getElementById('dims-mesure');
+    const dimsStandard = document.getElementById('dims-standard');
+
+    if (offreMesure) {
+      dimsStandard.style.display = 'none';
+      dimsMesure.style.display = 'flex';
+      // reset preview aux valeurs standard
+      document.getElementById('pv-width').textContent = '80 cm';
+      document.getElementById('pv-height').textContent = '20 cm';
+      document.getElementById('pv-profondeur').textContent = '15 cm';
+      document.getElementById('pv-thick').textContent = '4 mm';
+    } else {
+      dimsStandard.style.display = 'block';
+      dimsMesure.style.display = 'none';
+      document.getElementById('pv-width').textContent = '80 cm';
+      document.getElementById('pv-height').textContent = '20 cm';
+      document.getElementById('pv-profondeur').textContent = '15 cm';
+      document.getElementById('pv-thick').textContent = '4 mm';
+    }
     updatePrix();
+    buildPreview();
   }
 
   function buildPreview() {
     const visual = document.getElementById('preview-visual');
     visual.innerHTML = '';
     const qty = Math.min(Math.max(parseInt(document.getElementById('quantite').value) || 1, 1), 99);
-    const width = parseInt(document.getElementById('slider-width').value);
+    const width = offreMesure ? parseInt(document.getElementById('slider-width').value) : 80;
     const barW = Math.max(18, Math.min(68, Math.round(width * 0.35)));
     const shown = Math.min(qty, 7);
     for (let i = 0; i < shown; i++) {
@@ -578,6 +616,24 @@
     buildPreview();
   }
 
+  function updateHauteur(v) {
+    document.getElementById('display-hauteur').textContent = v + ' cm';
+    document.getElementById('pv-height').textContent = v + ' cm';
+    document.getElementById('input-hauteur').value = v + ' cm';
+  }
+
+  function updateProfondeur(v) {
+    document.getElementById('display-profondeur').textContent = v + ' cm';
+    document.getElementById('pv-profondeur').textContent = v + ' cm';
+    document.getElementById('input-profondeur').value = v + ' cm';
+  }
+
+  function updateEpaisseur(v) {
+    document.getElementById('display-epaisseur').textContent = v + ' mm';
+    document.getElementById('pv-thick').textContent = v + ' mm';
+    document.getElementById('input-epaisseur').value = v + ' mm';
+  }
+
   function updateSticker(v) {
     stickerOn = v;
     document.getElementById('pv-sticker').textContent = v ? 'Oui' : 'Non';
@@ -585,17 +641,19 @@
   }
 
   function updateSpec() {
-    const h = document.getElementById('hauteur').value;
-    const p = document.getElementById('profondeur').value;
-    const t = document.getElementById('epaisseur').value;
     const q = parseInt(document.getElementById('quantite').value) || 0;
-    document.getElementById('pv-height').textContent = h === 'sur mesure' ? 'Sur mesure' : '20 cm';
-    document.getElementById('pv-profondeur').textContent = p === 'sur mesure' ? 'Sur mesure' : '15 cm';
-    document.getElementById('pv-thick').textContent = t === 'sur mesure' ? 'Sur mesure' : '4 mm';
     document.getElementById('pv-qty').textContent = q + ' protection' + (q > 1 ? 's' : '');
     updatePrix();
     buildPreview();
   }
+
+  // Écouter quantite même en mode standard
+  document.getElementById('quantite').addEventListener('input', function() {
+    const q = parseInt(this.value) || 0;
+    document.getElementById('pv-qty').textContent = q + ' protection' + (q > 1 ? 's' : '');
+    updatePrix();
+    buildPreview();
+  });
 
   buildPreview();
   updatePrix();
