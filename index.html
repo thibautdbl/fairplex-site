@@ -211,7 +211,7 @@
   <div>
     <div class="hero-tag">Le réflexe antivol pour vos commerces</div>
     <h1>Le plexiglass qui <em>protège</em> vos produits.</h1>
-    <p>Fairplex conçoit des protections d'étagères en plexiglass, pratiques, élégantes et discrètes — pour tous les commerces.</p>
+    <p>Fairplex conçoit des protections d'étagères antivols en plexiglass, pratiques, élégantes et discrètes — pour tous les commerces.</p>
     <a href="#configurateur" class="btn-primary">Faire une demande de devis</a>
   </div>
   <div class="hero-visual">
@@ -351,16 +351,22 @@
       <div class="form-card">
         <p class="form-card-title">Dimensions</p>
 
-        <!-- STANDARD : dimensions fixes affichées en lecture seule -->
+        <!-- STANDARD : largeur modulable, reste fixe -->
         <div id="dims-standard">
-          <div style="background:var(--green-pale); border-radius:8px; padding:1rem 1.25rem; display:flex; flex-direction:column; gap:6px;">
-            <p style="font-size:0.78rem; color:var(--green); font-weight:500; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">Dimensions fixes — offre standard</p>
-            <span style="font-size:0.9rem; color:var(--navy);">Largeur : <strong>80 cm</strong></span>
+          <div style="background:var(--green-pale); border-radius:8px; padding:1rem 1.25rem; display:flex; flex-direction:column; gap:10px;">
+            <p style="font-size:0.78rem; color:var(--green); font-weight:500; text-transform:uppercase; letter-spacing:0.1em;">Dimensions — offre standard</p>
+            <div class="form-group">
+              <label style="font-size:0.85rem; font-weight:500; color:var(--navy);">Largeur (cm)</label>
+              <div class="slider-row">
+                <input type="range" id="slider-width-std" name="largeur" min="5" max="200" value="80" step="1" oninput="updateWidthStd(this.value)">
+                <span class="slider-val" id="display-width-std">80 cm</span>
+              </div>
+              <small>De 5 à 200 cm</small>
+            </div>
             <span style="font-size:0.9rem; color:var(--navy);">Hauteur : <strong>20 cm</strong></span>
             <span style="font-size:0.9rem; color:var(--navy);">Profondeur : <strong>15 cm</strong></span>
             <span style="font-size:0.9rem; color:var(--navy);">Épaisseur : <strong>4 mm</strong></span>
           </div>
-          <input type="hidden" name="largeur" value="80 cm">
           <input type="hidden" name="hauteur" value="20cm standard">
           <input type="hidden" name="profondeur" value="15cm standard">
           <input type="hidden" name="epaisseur" value="4mm standard">
@@ -587,7 +593,9 @@
     const visual = document.getElementById('preview-visual');
     visual.innerHTML = '';
     const qty = Math.min(Math.max(parseInt(document.getElementById('quantite').value) || 1, 1), 99);
-    const width = offreMesure ? parseInt(document.getElementById('slider-width').value) : 80;
+    const width = offreMesure
+      ? parseInt(document.getElementById('slider-width').value)
+      : parseInt(document.getElementById('slider-width-std').value);
     const barW = Math.max(18, Math.min(68, Math.round(width * 0.35)));
     const shown = Math.min(qty, 7);
     for (let i = 0; i < shown; i++) {
@@ -607,6 +615,12 @@
       more.textContent = '+' + (qty - 7);
       visual.appendChild(more);
     }
+  }
+
+  function updateWidthStd(v) {
+    document.getElementById('display-width-std').textContent = v + ' cm';
+    document.getElementById('pv-width').textContent = v + ' cm';
+    buildPreview();
   }
 
   function updateWidth(v) {
