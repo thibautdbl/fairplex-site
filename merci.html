@@ -8,41 +8,50 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --cream: #F5F0E8;
-    --green-dark: #1E3A2F;
-    --green-light: #4A8C6A;
-    --green-pale: #D4E6DC;
-    --text-dark: #1A2B22;
-    --text-muted: #5A7265;
-    --white: #FDFCF8;
+    --cream: #F4F6F8;
+    --navy: #2B3D52;
+    --navy-mid: #3A5268;
+    --green: #3DAA72;
+    --green-pale: #D6EFE2;
+    --red: #D93B35;
+    --orange: #F08A1E;
+    --yellow: #B8CC1A;
+    --blue: #29B5D8;
+    --text-dark: #1E2D3D;
+    --text-muted: #5A6E82;
+    --white: #FFFFFF;
   }
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--cream);
     color: var(--text-dark);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    display: flex; flex-direction: column;
   }
   nav {
-    background: var(--green-dark);
+    background: var(--navy);
     padding: 0 4rem;
     display: flex; align-items: center;
-    height: 68px;
+    height: 80px;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue)) 1;
   }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem; font-weight: 600;
-    color: var(--cream); text-decoration: none;
-  }
-  .nav-logo span { color: var(--green-light); }
+  .nav-logo img { height: 60px; width: auto; display: block; }
+
   main {
     flex: 1;
     display: flex; align-items: center; justify-content: center;
     padding: 4rem 2rem;
-    text-align: center;
   }
-  .success-box { max-width: 480px; }
+  .success-box {
+    max-width: 520px; width: 100%;
+    background: var(--white);
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(43,61,82,0.08);
+    border-top: 4px solid var(--green);
+  }
   .success-icon {
     width: 72px; height: 72px;
     background: var(--green-pale);
@@ -52,39 +61,65 @@
   }
   .success-icon svg {
     width: 36px; height: 36px;
-    stroke: var(--green-dark); fill: none;
-    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    stroke: var(--green); fill: none;
+    stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
   }
   h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem; color: var(--green-dark);
-    margin-bottom: 1rem;
+    font-size: 2rem; color: var(--navy);
+    margin-bottom: 1rem; line-height: 1.2;
   }
-  p { color: var(--text-muted); font-weight: 300; font-size: 1rem; line-height: 1.7; }
+  p {
+    color: var(--text-muted); font-weight: 300;
+    font-size: 1rem; line-height: 1.7;
+  }
+  .info-block {
+    margin-top: 1.5rem;
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-left: 3px solid var(--green);
+    text-align: left;
+  }
   .btn-back {
     display: inline-block;
     margin-top: 2rem;
-    background: var(--green-dark);
-    color: var(--cream);
+    background: var(--navy);
+    color: #fff;
     padding: 13px 28px;
     border-radius: 4px;
     text-decoration: none;
     font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.02em;
     transition: background 0.2s;
   }
-  .btn-back:hover { background: #2E5944; }
+  .btn-back:hover { background: var(--navy-mid); }
+
   footer {
-    background: #111C16;
+    background: #1A2533;
     padding: 1.5rem 4rem;
-    text-align: center;
+    display: flex; align-items: center; justify-content: space-between;
   }
-  .footer-copy { font-size: 0.78rem; color: rgba(245,240,232,0.22); }
+  .footer-logo img { height: 36px; width: auto; opacity: 0.4; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1.5rem; }
+    .success-box { padding: 2rem 1.5rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+  }
 </style>
 </head>
 <body>
+
 <nav>
-  <a href="index.html" class="nav-logo">fair<span>plex</span></a>
+  <a href="index.html" class="nav-logo">
+    <img src="logo2.jpg" alt="Fairplex – le réflexe antivol">
+  </a>
 </nav>
+
 <main>
   <div class="success-box">
     <div class="success-icon">
@@ -92,11 +127,19 @@
     </div>
     <h1>Demande envoyée !</h1>
     <p>Merci pour votre demande de devis. Nous l'avons bien reçue et vous recontacterons dans les <strong>24 heures</strong> ouvrées à l'adresse email indiquée.</p>
+    <div class="info-block">
+      Une question urgente ? Contactez-nous directement à <strong>contact@fairplex.fr</strong> ou au <strong>+33 6 00 00 00 00</strong>.
+    </div>
     <a href="index.html" class="btn-back">← Retour au site</a>
   </div>
 </main>
+
 <footer>
-  <p class="footer-copy">© 2025 Fairplex — Tous droits réservés</p>
+  <div class="footer-logo">
+    <img src="logo2.jpg" alt="Fairplex">
+  </div>
+  <div class="footer-copy">© 2025 Fairplex — Tous droits réservés</div>
 </footer>
+
 </body>
 </html>

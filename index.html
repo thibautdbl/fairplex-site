@@ -102,6 +102,14 @@
   .card-badge { display: inline-block; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px; border-radius: 50px; margin-bottom: 1.25rem; }
   .card-badge.badge-standard { background: var(--green-pale); color: var(--green); }
   .card-badge.badge-mesure { background: #FDEBD0; color: #c46e10; }
+
+  /* Tooltip */
+  .tooltip-wrap { position: relative; display: inline-flex; align-items: center; }
+  .tooltip-icon { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: var(--text-muted); color: white; font-size: 0.65rem; font-weight: 700; cursor: pointer; font-style: normal; flex-shrink: 0; }
+  .tooltip-box { display: none; position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--navy); color: #fff; font-size: 0.78rem; line-height: 1.7; padding: 10px 14px; border-radius: 8px; white-space: nowrap; z-index: 10; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+  .tooltip-box::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--navy); }
+  .tooltip-wrap:hover .tooltip-box { display: block; }
+  .tooltip-img { padding: 10px; white-space: normal; width: auto; }
   .produit-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; color: var(--navy); margin-bottom: 0.75rem; }
   .produit-card p { font-size: 0.92rem; color: var(--text-muted); font-weight: 300; line-height: 1.7; }
   .produit-specs { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 6px; }
@@ -196,7 +204,7 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <img src="logo.jpg" alt="Fairplex – le réflexe antivol">
+    <img src="logo2.jpg" alt="Fairplex – le réflexe antivol">
   </a>
   <ul class="nav-links">
     <li><a href="#about">À propos</a></li>
@@ -215,13 +223,7 @@
     <a href="#configurateur" class="btn-primary">Faire une demande de devis</a>
   </div>
   <div class="hero-visual">
-    <div class="plexi-illustration">
-      <div class="plexi-block"></div>
-      <div class="plexi-block"></div>
-      <div class="plexi-block"></div>
-      <div class="plexi-block"></div>
-      <div class="plexi-label">protection étagère</div>
-    </div>
+    <img src="logo2.jpg" alt="Fairplex" style="width:300px; max-width:90%; border-radius:8px;">
   </div>
 </section>
 
@@ -254,7 +256,7 @@
       </div>
       <div class="value-item">
         <h4>Élégante &amp; discrète</h4>
-        <p>Le plexiglass transparent se fond dans votre rayon sans masquer vos produits. Vos clients voient, mais ne prennent plus.</p>
+        <p>Le plexiglass se fond dans votre rayon et valorise vos produits sans les masquer.</p>
       </div>
       <div class="value-item">
         <h4>Dimensions adaptées</h4>
@@ -266,9 +268,11 @@
       </div>
     </div>
   </div>
+  <!-- Photo équipe -->
+  <div style="margin-top:3rem; border-radius:12px; overflow:hidden; max-height:520px;">
+    <img src="equipe.jpg" alt="L'équipe Fairplex dans une pharmacie avec les protections plexiglass" style="width:100%; height:100%; object-fit:cover; display:block;">
+  </div>
 </section>
-
-<!-- PRODUITS -->
 <section id="produits">
   <div class="section-tag">Nos offres</div>
   <h2 class="section-title">Standard ou sur mesure,<br>il y a une solution pour vous.</h2>
@@ -289,15 +293,27 @@
       </div>
       <div class="produit-price price-standard">
         <div style="display:flex; align-items:baseline; gap:0.4rem;">
-          <span class="price-amount">30 €</span>
+          <span class="price-amount">39 €</span>
           <span class="price-unit">/ protection HT</span>
         </div>
-        <p class="price-note">Tarif dégressif selon quantité</p>
+        <p class="price-note" style="display:flex; align-items:center; gap:6px; margin-top:6px;">
+          Tarif dégressif selon quantité
+          <span class="tooltip-wrap">
+            <span class="tooltip-icon">i</span>
+            <span class="tooltip-box">
+              1–49 pièces : 39 €/u<br>
+              50–99 pièces : 37 €/u<br>
+              100–149 pièces : 35 €/u<br>
+              150–199 pièces : 33 €/u<br>
+              200+ pièces : 31 €/u
+            </span>
+          </span>
+        </p>
       </div>
     </div>
 
     <div class="produit-card card-mesure">
-      <span class="card-badge badge-mesure">Sur mesure — +5 € / pièce</span>
+      <span class="card-badge badge-mesure">Sur mesure — à partir de 49 €/pièce</span>
       <h3>Protection sur mesure</h3>
       <p>Vos étagères ont des dimensions atypiques ? Largeur différente, configuration particulière ? Nous découpons au millimètre selon vos besoins, après étude de votre demande sous 24h.</p>
       <div class="produit-specs">
@@ -309,10 +325,22 @@
       </div>
       <div class="produit-price price-mesure">
         <div style="display:flex; align-items:baseline; gap:0.4rem;">
-          <span class="price-amount">35 €</span>
+          <span class="price-amount">49 €</span>
           <span class="price-unit">/ protection HT</span>
         </div>
-        <p class="price-note">Tarif dégressif selon quantité</p>
+        <p class="price-note" style="display:flex; align-items:center; gap:6px; margin-top:6px;">
+          Tarif dégressif selon quantité
+          <span class="tooltip-wrap">
+            <span class="tooltip-icon">i</span>
+            <span class="tooltip-box">
+              1–49 pièces : 49 €/u<br>
+              50–99 pièces : 47 €/u<br>
+              100–149 pièces : 45 €/u<br>
+              150–199 pièces : 43 €/u<br>
+              200+ pièces : 41 €/u
+            </span>
+          </span>
+        </p>
       </div>
     </div>
   </div>
@@ -417,7 +445,16 @@
       <div class="form-card">
         <p class="form-card-title">Options</p>
         <div class="form-group">
-          <label>Autocollant personnalisé</label>
+          <label style="display:flex; align-items:center; gap:8px;">
+            Autocollant personnalisé
+            <span class="tooltip-wrap">
+              <span class="tooltip-icon">i</span>
+              <span class="tooltip-box tooltip-img">
+                <img src="autocollant-exemple.jpg" alt="Exemple autocollant Ne pas toucher" style="width:220px; border-radius:6px; display:block;">
+                <span style="display:block; margin-top:6px; font-size:0.75rem; color:rgba(255,255,255,0.7); text-align:center;">Exemple d'autocollant personnalisé</span>
+              </span>
+            </span>
+          </label>
           <div class="radio-group">
             <label class="radio-option">
               <input type="radio" name="autocollant" value="Non" checked onchange="updateSticker(false)"> Non merci
@@ -439,7 +476,7 @@
           <div class="prix-estime-label">Estimation totale</div>
           <div class="prix-estime-note">HT — hors options autocollant</div>
         </div>
-        <div class="prix-estime-val" id="prix-total">300 €</div>
+        <div class="prix-estime-val" id="prix-total">390 €</div>
       </div>
 
       <!-- COORDONNÉES -->
@@ -511,8 +548,16 @@
           <span class="preview-spec-val" id="pv-qty">10 protections</span>
         </div>
         <div class="preview-spec-row" style="margin-top:0.5rem; padding-top:0.75rem; border-top:1px solid rgba(255,255,255,0.15) !important;">
+          <span class="preview-spec-label" style="color:rgba(255,255,255,0.6);">Prix unitaire</span>
+          <span class="preview-spec-val" id="pv-pu" style="color:#F4F6F8;">39 €/u</span>
+        </div>
+        <div class="preview-spec-row">
+          <span class="preview-spec-label" style="color:#F08A1E;">Réduction appliquée</span>
+          <span class="preview-spec-val" id="pv-reduction" style="color:#F08A1E;">— €</span>
+        </div>
+        <div class="preview-spec-row">
           <span class="preview-spec-label" style="color:rgba(255,255,255,0.8); font-weight:500;">Total estimé HT</span>
-          <span class="preview-spec-val" id="pv-prix" style="color:#3DAA72; font-size:1.15rem;">300 €</span>
+          <span class="preview-spec-val" id="pv-prix" style="color:#3DAA72; font-size:1.15rem;">390 €</span>
         </div>
       </div>
     </div>
@@ -552,14 +597,35 @@
   let stickerOn = false;
   let offreMesure = false;
 
-  function getPrixUnit() { return offreMesure ? 35 : 30; }
+  function getPrixUnit() {
+    const q = parseInt(document.getElementById('quantite').value) || 1;
+    const base = offreMesure ? 49 : 39;
+    // -2€ par tranche de 50, max 4 tranches
+    const tranches = Math.min(Math.floor(q / 50), 4);
+    return base - (tranches * 2);
+  }
 
   function updatePrix() {
     const q = parseInt(document.getElementById('quantite').value) || 0;
-    const total = q * getPrixUnit();
+    const baseUnit = offreMesure ? 49 : 39;
+    const pu = getPrixUnit();
+    const reduction = baseUnit - pu;
+    const total = q * pu;
     const fmt = total.toLocaleString('fr-FR') + ' €';
+    const puFmt = pu + ' €/u';
     document.getElementById('prix-total').textContent = fmt;
     document.getElementById('pv-prix').textContent = fmt;
+    const puEl = document.getElementById('pv-pu');
+    if (puEl) puEl.textContent = puFmt;
+    const redEl = document.getElementById('pv-reduction');
+    if (redEl) {
+      if (reduction > 0) {
+        redEl.textContent = '−' + reduction + ' €/u';
+        redEl.closest('.preview-spec-row').style.display = 'flex';
+      } else {
+        redEl.closest('.preview-spec-row').style.display = 'none';
+      }
+    }
   }
 
   function updateOffre(type) {
