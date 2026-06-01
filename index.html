@@ -159,7 +159,7 @@
   .config-preview { background: var(--navy); border-radius: 12px; padding: 2.5rem; position: sticky; top: 100px; overflow: hidden; }
   .config-preview::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue)); }
   .preview-title { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); margin-bottom: 1.5rem; font-weight: 500; }
-  .plexi-preview-visual { display: flex; justify-content: center; align-items: center; height: 120px; margin-bottom: 1.25rem; overflow: hidden; cursor: grab; }
+  .plexi-preview-visual { display: flex; justify-content: center; align-items: center; height: 150px; margin-bottom: 1.25rem; overflow: hidden; cursor: grab; }
   .plexi-preview-visual:active { cursor: grabbing; }
   .plexi-bar { background: rgba(180,220,200,0.18); border: 1.5px solid rgba(180,220,200,0.45); border-radius: 3px; position: relative; height: 100px; transition: width 0.35s ease; flex-shrink: 0; }
   .plexi-bar-sticker { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70%; height: 28%; background: rgba(61,170,114,0.5); border-radius: 2px; }
@@ -447,7 +447,7 @@
             <div class="form-group">
               <label style="font-size:0.85rem; font-weight:500; color:var(--navy);">Largeur (cm)</label>
               <div class="slider-row">
-                <input type="range" id="slider-width-std" name="largeur" min="5" max="75" value="60" step="1" oninput="updateWidthStd(this.value)">
+                <input type="range" id="slider-width-std" min="5" max="75" value="60" step="1" oninput="updateWidthStd(this.value)">
                 <span class="slider-val" id="display-width-std">60 cm</span>
               </div>
               <small>De 5 à 75 cm</small>
@@ -456,9 +456,6 @@
             <span style="font-size:0.9rem; color:var(--navy);">Profondeur : <strong>15 cm</strong></span>
             <span style="font-size:0.9rem; color:var(--navy);">Épaisseur : <strong>4 mm</strong></span>
           </div>
-          <input type="hidden" name="hauteur" value="20cm standard">
-          <input type="hidden" name="profondeur" value="15cm standard">
-          <input type="hidden" name="epaisseur" value="4mm standard">
         </div>
 
         <!-- SUR MESURE : tous les champs modifiables, masqués par défaut -->
@@ -466,40 +463,42 @@
           <div class="form-group">
             <label>Largeur (cm)</label>
             <div class="slider-row">
-              <input type="range" id="slider-width" name="largeur_slider" min="5" max="120" value="80" step="1" oninput="updateWidth(this.value)">
+              <input type="range" id="slider-width" min="5" max="120" value="80" step="1" oninput="updateWidth(this.value)">
               <span class="slider-val" id="display-width">80 cm</span>
             </div>
-            <input type="hidden" name="largeur" id="input-largeur" value="80 cm">
             <small>De 5 à 120 cm</small>
           </div>
           <div class="form-group">
             <label>Hauteur (cm)</label>
             <div class="slider-row">
-              <input type="range" id="slider-hauteur" name="hauteur_slider" min="5" max="60" value="20" step="1" oninput="updateHauteur(this.value)">
+              <input type="range" id="slider-hauteur" min="5" max="60" value="20" step="1" oninput="updateHauteur(this.value)">
               <span class="slider-val" id="display-hauteur">20 cm</span>
             </div>
-            <input type="hidden" name="hauteur" id="input-hauteur" value="20 cm">
             <small>De 5 à 60 cm</small>
           </div>
           <div class="form-group">
             <label>Profondeur (cm)</label>
             <div class="slider-row">
-              <input type="range" id="slider-profondeur" name="profondeur_slider" min="5" max="60" value="15" step="1" oninput="updateProfondeur(this.value)">
+              <input type="range" id="slider-profondeur" min="5" max="60" value="15" step="1" oninput="updateProfondeur(this.value)">
               <span class="slider-val" id="display-profondeur">15 cm</span>
             </div>
-            <input type="hidden" name="profondeur" id="input-profondeur" value="15 cm">
             <small>De 5 à 60 cm</small>
           </div>
           <div class="form-group">
             <label>Épaisseur (mm)</label>
             <div class="slider-row">
-              <input type="range" id="slider-epaisseur" name="epaisseur_slider" min="2" max="10" value="4" step="1" oninput="updateEpaisseur(this.value)">
+              <input type="range" id="slider-epaisseur" min="2" max="10" value="4" step="1" oninput="updateEpaisseur(this.value)">
               <span class="slider-val" id="display-epaisseur">4 mm</span>
             </div>
-            <input type="hidden" name="epaisseur" id="input-epaisseur" value="4 mm">
             <small>De 2 à 10 mm</small>
           </div>
         </div>
+
+        <!-- Champs cachés uniques envoyés à Netlify -->
+        <input type="hidden" name="largeur"    id="hidden-largeur"    value="60 cm">
+        <input type="hidden" name="hauteur"    id="hidden-hauteur"    value="20 cm">
+        <input type="hidden" name="profondeur" id="hidden-profondeur" value="15 cm">
+        <input type="hidden" name="epaisseur"  id="hidden-epaisseur"  value="4 mm">
       </div>
 
       <!-- OPTIONS -->
@@ -641,12 +640,16 @@
       <span class="contact-item-val">contact@fairplex.fr</span>
     </div>
     <div class="contact-item">
-      <span class="contact-item-label">Téléphone</span>
-      <span class="contact-item-val">+33 6 00 00 00 00</span>
+      <span class="contact-item-label">Thibaut Delbello</span>
+      <span class="contact-item-val">06 40 41 22 58</span>
     </div>
     <div class="contact-item">
-      <span class="contact-item-label">Localisation</span>
-      <span class="contact-item-val">France métropolitaine</span>
+      <span class="contact-item-label">Marie Guilhaumon</span>
+      <span class="contact-item-val">06 27 88 64 78</span>
+    </div>
+    <div class="contact-item">
+      <span class="contact-item-label">Guiot Bryan</span>
+      <span class="contact-item-val">06 21 70 95 28</span>
     </div>
   </div>
 </div>
@@ -725,11 +728,20 @@
     if (offreMesure) {
       dimsStandard.style.display = 'none';
       dimsMesure.style.display = 'flex';
+      document.getElementById('hidden-largeur').value = '80 cm';
+      document.getElementById('hidden-hauteur').value = '20 cm';
+      document.getElementById('hidden-profondeur').value = '15 cm';
+      document.getElementById('hidden-epaisseur').value = '4 mm';
     } else {
       dimsStandard.style.display = 'block';
       dimsMesure.style.display = 'none';
+      const stdW = document.getElementById('slider-width-std').value;
+      document.getElementById('hidden-largeur').value = stdW + ' cm';
+      document.getElementById('hidden-hauteur').value = '20 cm';
+      document.getElementById('hidden-profondeur').value = '15 cm';
+      document.getElementById('hidden-epaisseur').value = '4 mm';
     }
-    document.getElementById('pv-width').textContent = offreMesure ? '80 cm' : '60 cm';
+    document.getElementById('pv-width').textContent = document.getElementById('hidden-largeur').value;
     document.getElementById('pv-height').textContent = '20 cm';
     document.getElementById('pv-profondeur').textContent = '15 cm';
     document.getElementById('pv-thick').textContent = '4 mm';
@@ -759,13 +771,29 @@
       ? parseInt(document.getElementById('slider-epaisseur').value)
       : 4;
 
-    const W = Math.max(60, Math.min(130, wRaw * 1.1));
-    const H = Math.max(22, Math.min(70,  hRaw * 1.8));
-    const D = Math.max(12, Math.min(50,  pRaw * 1.3));
-    const T = Math.max(3,  Math.min(12,  eRaw * 1.2));
+    // Canvas fixe — le modèle s'adapte dedans
+    const CW = 230, CH = 150;
+
+    const SCALE_W = 110 / 70;  // largeur : 70cm = 110px
+    const SCALE_H = 40 / 20;   // hauteur : 20cm = 40px mais clampé
+
+    const Wb = wRaw * SCALE_W;
+    const Hb = Math.min(hRaw * SCALE_H, 70); // max visuel 70px comme avant
+
+    const maxW = CW - 30;
+    const maxH = CH - 30;
+    const reduceW = Wb > maxW ? maxW / Wb : 1;
+    const reduceH = Hb > maxH ? maxH / Hb : 1;
+    const reduce = Math.min(reduceW, reduceH);
+
+    const W = wRaw * SCALE_W * reduce;
+    const H = Math.min(hRaw * SCALE_H, 70) * reduce;
+    const D = Math.min(pRaw * SCALE_W * reduce * 0.7, 45);
+    const T = Math.max(2.5, eRaw * SCALE_W * reduce * 0.4);
 
     const canvas = document.createElement('canvas');
-    canvas.width = 230; canvas.height = 160;
+    canvas.width  = CW;
+    canvas.height = CH;
     canvas.style.cssText = 'display:block; margin:0 auto; cursor:grab; touch-action:none;';
     visual.appendChild(canvas);
     const ctx = canvas.getContext('2d');
@@ -775,8 +803,8 @@
       const rx = x * cosA - z * sinA;
       const rz = x * sinA + z * cosA;
       return {
-        x: canvas.width / 2 + rx,
-        y: canvas.height / 2 + 12 + y - rz * 0.20
+        x: CW / 2 + rx,
+        y: CH / 2 + H * 0.15 + y - rz * 0.18
       };
     }
 
@@ -878,34 +906,35 @@
   function updateWidthStd(v) {
     document.getElementById('display-width-std').textContent = v + ' cm';
     document.getElementById('pv-width').textContent = v + ' cm';
+    document.getElementById('hidden-largeur').value = v + ' cm';
     build3DPreview();
   }
 
   function updateWidth(v) {
     document.getElementById('display-width').textContent = v + ' cm';
     document.getElementById('pv-width').textContent = v + ' cm';
-    document.getElementById('input-largeur').value = v + ' cm';
+    document.getElementById('hidden-largeur').value = v + ' cm';
     build3DPreview();
   }
 
   function updateHauteur(v) {
     document.getElementById('display-hauteur').textContent = v + ' cm';
     document.getElementById('pv-height').textContent = v + ' cm';
-    document.getElementById('input-hauteur').value = v + ' cm';
+    document.getElementById('hidden-hauteur').value = v + ' cm';
     build3DPreview();
   }
 
   function updateProfondeur(v) {
     document.getElementById('display-profondeur').textContent = v + ' cm';
     document.getElementById('pv-profondeur').textContent = v + ' cm';
-    document.getElementById('input-profondeur').value = v + ' cm';
+    document.getElementById('hidden-profondeur').value = v + ' cm';
     build3DPreview();
   }
 
   function updateEpaisseur(v) {
     document.getElementById('display-epaisseur').textContent = v + ' mm';
     document.getElementById('pv-thick').textContent = v + ' mm';
-    document.getElementById('input-epaisseur').value = v + ' mm';
+    document.getElementById('hidden-epaisseur').value = v + ' mm';
     build3DPreview();
   }
 
