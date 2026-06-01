@@ -499,6 +499,12 @@
         <input type="hidden" name="hauteur"    id="hidden-hauteur"    value="20 cm">
         <input type="hidden" name="profondeur" id="hidden-profondeur" value="15 cm">
         <input type="hidden" name="epaisseur"  id="hidden-epaisseur"  value="4 mm">
+
+        <!-- Quantité directement sous les dimensions -->
+        <div class="form-group" style="margin-top:1rem;">
+          <label for="quantite">Quantité souhaitée</label>
+          <input type="number" id="quantite" name="quantite" min="1" value="10" placeholder="Ex : 20" oninput="updateSpec()">
+        </div>
       </div>
 
       <!-- OPTIONS -->
@@ -523,10 +529,6 @@
               <input type="radio" name="autocollant" value="Oui" onchange="updateSticker(true)"> Oui, avec autocollant
             </label>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="quantite">Quantité souhaitée</label>
-          <input type="number" id="quantite" name="quantite" min="1" value="10" placeholder="Ex : 20" oninput="updateSpec()">
         </div>
       </div>
 
