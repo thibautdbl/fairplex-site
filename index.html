@@ -159,7 +159,8 @@
   .config-preview { background: var(--navy); border-radius: 12px; padding: 2.5rem; position: sticky; top: 100px; overflow: hidden; }
   .config-preview::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue)); }
   .preview-title { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); margin-bottom: 1.5rem; font-weight: 500; }
-  .plexi-preview-visual { display: flex; justify-content: center; align-items: flex-end; height: 160px; margin-bottom: 2rem; gap: 6px; }
+  .plexi-preview-visual { display: flex; justify-content: center; align-items: center; height: 120px; margin-bottom: 1.25rem; overflow: hidden; cursor: grab; }
+  .plexi-preview-visual:active { cursor: grabbing; }
   .plexi-bar { background: rgba(180,220,200,0.18); border: 1.5px solid rgba(180,220,200,0.45); border-radius: 3px; position: relative; height: 100px; transition: width 0.35s ease; flex-shrink: 0; }
   .plexi-bar-sticker { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70%; height: 28%; background: rgba(61,170,114,0.5); border-radius: 2px; }
   .preview-specs { display: flex; flex-direction: column; }
@@ -182,20 +183,79 @@
   .footer-logo img { height: 40px; width: auto; opacity: 0.5; }
   .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
 
+  /* HAMBURGER */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
   /* RESPONSIVE */
-  @media (max-width: 900px) {
-    nav { padding: 0 1.5rem; height: 72px; }
-    .nav-logo img { height: 50px; }
-    .hero { grid-template-columns: 1fr; padding: 4rem 1.5rem 5rem; }
+  @media (max-width: 768px) {
+
+    /* BASE */
+    * { word-break: break-word; }
+    body { font-size: 15px; }
+
+    /* NAV */
+    nav { padding: 0 1.25rem; height: 68px; position: relative; }
+    .nav-logo img { height: 46px; }
+    .hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute; top: 68px; left: 0; right: 0;
+      background: var(--navy);
+      padding: 1rem 1.25rem 1.5rem;
+      gap: 0; z-index: 99;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { list-style: none; }
+    .nav-links a { display: block; padding: 0.75rem 0; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.07); color: rgba(255,255,255,0.85); }
+    .nav-links li:last-child a { border-bottom: none; }
+
+    /* HERO */
+    .hero { grid-template-columns: 1fr; padding: 3rem 1.25rem 4rem; margin-top: 68px; }
     .hero-visual { display: none; }
-    section { padding: 3.5rem 1.5rem; }
-    .about-grid, .config-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-    .produits-grid { grid-template-columns: 1fr; }
-    .config-preview { position: static; }
-    .contact-bar { flex-direction: column; align-items: flex-start; padding: 3rem 1.5rem; }
-    footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.75rem 1.5rem; }
+    .hero h1 { font-size: 1.7rem; }
+    .hero p { font-size: 0.95rem; }
+    .btn-primary { width: 100%; text-align: center; padding: 14px 20px; box-sizing: border-box; }
+
+    /* SECTIONS */
+    section { padding: 2.5rem 1.25rem; }
+    .section-title { font-size: 1.5rem; }
+
+    /* ABOUT */
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-stats { flex-wrap: wrap; gap: 1.5rem; }
+
+    /* PRODUITS */
+    .produits-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .produit-card { padding: 1.5rem; }
+    .price-amount { font-size: 1.6rem; }
+
+    /* TOOLTIP */
+    .tooltip-box { left: 0; transform: none; max-width: calc(100vw - 2.5rem); }
+
+    /* CONFIGURATEUR */
+    .config-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+    .form-card { padding: 1.25rem; }
     .form-row { grid-template-columns: 1fr; }
-    .prix-estime { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .slider-row { gap: 0.75rem; }
+    .slider-val { font-size: 1rem; min-width: 52px; }
+    .radio-group { flex-direction: column; }
+    .radio-option { width: 100%; justify-content: flex-start; }
+    .config-preview { position: static; padding: 1.5rem; }
+    .prix-estime { flex-direction: column; align-items: flex-start; gap: 0.5rem; padding: 1.25rem; }
+    .btn-submit { font-size: 1rem; padding: 16px 20px; }
+
+    /* CONTACT */
+    .contact-bar { flex-direction: column; align-items: flex-start; padding: 2.5rem 1.25rem; gap: 1.5rem; }
+    .contact-info { flex-direction: column; gap: 1rem; }
+
+    /* FOOTER */
+    footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem 1.25rem; }
   }
 </style>
 </head>
@@ -206,11 +266,14 @@
   <a href="#" class="nav-logo">
     <img src="logo2.jpg" alt="Fairplex – le réflexe antivol">
   </a>
-  <ul class="nav-links">
-    <li><a href="#about">À propos</a></li>
-    <li><a href="#produits">Nos offres</a></li>
-    <li><a href="#configurateur">Devis</a></li>
-    <li><a href="#contact">Contact</a></li>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about" onclick="closeMenu()">À propos</a></li>
+    <li><a href="#produits" onclick="closeMenu()">Nos offres</a></li>
+    <li><a href="#configurateur" onclick="closeMenu()">Devis</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
   </ul>
 </nav>
 
@@ -223,7 +286,7 @@
     <a href="#configurateur" class="btn-primary">Faire une demande de devis</a>
   </div>
   <div class="hero-visual">
-    <img src="logo2.jpg" alt="Fairplex" style="width:300px; max-width:90%; border-radius:8px;">
+    <img src="plexi-product.jpg" alt="Protection plexiglass Fairplex" style="width:420px; max-width:95%; border-radius:12px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
   </div>
 </section>
 
@@ -250,7 +313,7 @@
       </div>
       <!-- Photo équipe juste sous les stats -->
       <div style="margin-top:1.5rem; border-radius:10px; overflow:hidden; display:inline-block; max-width:100%;">
-        <img src="equipe.jpg" alt="L'équipe Fairplex" style="width:100%; max-width:480px; height:auto; display:block; border-radius:10px;">
+        <img src="equipe.jpg" alt="L'équipe Fairplex" style="width:100%; max-width:480px; height:auto; display:block; border-radius:10px; transform:scale(1.12); transform-origin:center center;">
       </div>
     </div>
     <div class="about-values">
@@ -281,7 +344,7 @@
     <div class="produit-card card-standard">
       <span class="card-badge badge-standard">Offre standard</span>
       <h3>Protection étagère standard</h3>
-      <p>Notre protection prête à installer, pensée pour correspondre aux étagères les plus courantes dans les commerces. Transparente, propre et efficace — aucune modification nécessaire.</p>
+      <p>Notre protection prête à installer, pensée pour correspondre aux étagères les plus courantes dans les commerces.</p>
       <div class="produit-specs">
         <span class="spec">Hauteur : 20 cm</span>
         <span class="spec">Profondeur : 15 cm</span>
@@ -312,15 +375,14 @@
     </div>
 
     <div class="produit-card card-mesure">
-      <span class="card-badge badge-mesure">Sur mesure — à partir de 49 €/pièce</span>
+      <span class="card-badge badge-mesure">Sur mesure</span>
       <h3>Protection sur mesure</h3>
-      <p>Vos étagères ont des dimensions atypiques ? Largeur différente, configuration particulière ? Nous découpons au millimètre selon vos besoins, après étude de votre demande sous 24h.</p>
+      <p>Vos étagères ont des dimensions atypiques ? Nous découpons au millimètre selon vos besoins exacts, après étude de votre demande.</p>
       <div class="produit-specs">
-        <span class="spec">Largeur libre — toutes dimensions</span>
+        <span class="spec">Largeur libre — jusqu'à 120 cm</span>
         <span class="spec">Hauteur et profondeur ajustables</span>
         <span class="spec">Épaisseur au choix</span>
-        <span class="spec">Option autocollant personnalisé</span>
-        <span class="spec">Devis confirmé sous 24h</span>
+        <span class="spec">Option autocollant disponible (0,80 € / étagère)</span>
       </div>
       <div class="produit-price price-mesure">
         <div style="display:flex; align-items:baseline; gap:0.4rem;">
@@ -349,7 +411,7 @@
 <section id="configurateur" style="background:var(--cream-dark);">
   <div class="section-tag">Configurateur &amp; Devis</div>
   <h2 class="section-title">Configurez votre commande<br>et demandez un devis.</h2>
-  <p class="section-lead" style="margin-top:0.5rem;">Renseignez vos dimensions, vos options et vos coordonnées. Nous vous répondons sous 24h.</p>
+  <p class="section-lead" style="margin-top:0.5rem;">Renseignez vos dimensions, vos options et vos coordonnées.</p>
 
   <div class="config-layout">
     <form name="devis-fairplex" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html" class="config-form" id="devis-form">
@@ -363,12 +425,12 @@
           <label>Quelle offre vous convient ?</label>
           <div class="radio-group">
             <label class="radio-option">
-              <input type="radio" name="offre" value="Standard — 30€/pièce" checked onchange="updateOffre('standard')">
-              Standard — 30 €/pièce
+              <input type="radio" name="offre" value="Standard — 39€/pièce" checked onchange="updateOffre('standard')">
+              Standard — 39 €/pièce
             </label>
             <label class="radio-option">
-              <input type="radio" name="offre" value="Sur mesure — 35€/pièce" onchange="updateOffre('mesure')">
-              Sur mesure — 35 €/pièce
+              <input type="radio" name="offre" value="Sur mesure — 49€/pièce" onchange="updateOffre('mesure')">
+              Sur mesure — 49 €/pièce
             </label>
           </div>
         </div>
@@ -385,10 +447,10 @@
             <div class="form-group">
               <label style="font-size:0.85rem; font-weight:500; color:var(--navy);">Largeur (cm)</label>
               <div class="slider-row">
-                <input type="range" id="slider-width-std" name="largeur" min="5" max="200" value="80" step="1" oninput="updateWidthStd(this.value)">
-                <span class="slider-val" id="display-width-std">80 cm</span>
+                <input type="range" id="slider-width-std" name="largeur" min="5" max="75" value="60" step="1" oninput="updateWidthStd(this.value)">
+                <span class="slider-val" id="display-width-std">60 cm</span>
               </div>
-              <small>De 5 à 200 cm</small>
+              <small>De 5 à 75 cm</small>
             </div>
             <span style="font-size:0.9rem; color:var(--navy);">Hauteur : <strong>20 cm</strong></span>
             <span style="font-size:0.9rem; color:var(--navy);">Profondeur : <strong>15 cm</strong></span>
@@ -404,11 +466,11 @@
           <div class="form-group">
             <label>Largeur (cm)</label>
             <div class="slider-row">
-              <input type="range" id="slider-width" name="largeur_slider" min="5" max="200" value="80" step="1" oninput="updateWidth(this.value)">
+              <input type="range" id="slider-width" name="largeur_slider" min="5" max="120" value="80" step="1" oninput="updateWidth(this.value)">
               <span class="slider-val" id="display-width">80 cm</span>
             </div>
             <input type="hidden" name="largeur" id="input-largeur" value="80 cm">
-            <small>De 5 à 200 cm</small>
+            <small>De 5 à 120 cm</small>
           </div>
           <div class="form-group">
             <label>Hauteur (cm)</label>
@@ -445,12 +507,12 @@
         <p class="form-card-title">Options</p>
         <div class="form-group">
           <label style="display:flex; align-items:center; gap:8px;">
-            Autocollant personnalisé
+            Autocollant (0,80 € / étagère)
             <span class="tooltip-wrap">
               <span class="tooltip-icon">i</span>
               <span class="tooltip-box tooltip-img">
-                <img src="autocollant-exemple.jpg" alt="Exemple autocollant Ne pas toucher" style="width:220px; border-radius:6px; display:block;">
-                <span style="display:block; margin-top:6px; font-size:0.75rem; color:rgba(255,255,255,0.7); text-align:center;">Exemple d'autocollant personnalisé</span>
+                <img src="autocollant-exemple.jpg" alt="Exemple autocollant" style="width:220px; border-radius:6px; display:block;">
+                <span style="display:block; margin-top:6px; font-size:0.75rem; color:rgba(255,255,255,0.7); text-align:center;">Exemple d'autocollant</span>
               </span>
             </span>
           </label>
@@ -473,7 +535,7 @@
       <div class="prix-estime">
         <div>
           <div class="prix-estime-label">Estimation totale</div>
-          <div class="prix-estime-note">HT — hors options autocollant</div>
+          <div class="prix-estime-note">HT — autocollant inclus si sélectionné</div>
         </div>
         <div class="prix-estime-val" id="prix-total">390 €</div>
       </div>
@@ -510,12 +572,12 @@
       </div>
 
       <button type="submit" class="btn-submit">Envoyer ma demande de devis →</button>
-      <p class="form-disclaimer">Vos données sont utilisées uniquement pour traiter votre demande. Réponse sous 24h.</p>
+      <p class="form-disclaimer">Vos données sont utilisées uniquement pour traiter votre demande.</p>
     </form>
 
     <!-- APERÇU -->
     <div class="config-preview">
-      <div class="preview-title">Récapitulatif de votre commande</div>
+      <div class="preview-title">Récapitulatif de votre projet</div>
       <div class="plexi-preview-visual" id="preview-visual"></div>
       <div class="preview-specs">
         <div class="preview-spec-row">
@@ -524,7 +586,7 @@
         </div>
         <div class="preview-spec-row">
           <span class="preview-spec-label">Largeur</span>
-          <span class="preview-spec-val" id="pv-width">80 cm</span>
+          <span class="preview-spec-val" id="pv-width">60 cm</span>
         </div>
         <div class="preview-spec-row">
           <span class="preview-spec-label">Hauteur</span>
@@ -549,6 +611,10 @@
         <div class="preview-spec-row" style="margin-top:0.5rem; padding-top:0.75rem; border-top:1px solid rgba(255,255,255,0.15) !important;">
           <span class="preview-spec-label" style="color:rgba(255,255,255,0.6);">Prix unitaire</span>
           <span class="preview-spec-val" id="pv-pu" style="color:#F4F6F8;">39 €/u</span>
+        </div>
+        <div class="preview-spec-row" id="row-autocollant-prix" style="display:none;">
+          <span class="preview-spec-label" style="color:rgba(255,255,255,0.6);">Autocollants</span>
+          <span class="preview-spec-val" id="pv-autocollant-prix" style="color:#F4F6F8;">0 €</span>
         </div>
         <div class="preview-spec-row">
           <span class="preview-spec-label" style="color:#F08A1E;">Réduction appliquée</span>
@@ -593,13 +659,24 @@
 </footer>
 
 <script>
+  function toggleMenu() {
+    const nav = document.getElementById('nav-links');
+    const btn = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+
   let stickerOn = false;
   let offreMesure = false;
+  let animFrame = null;
 
   function getPrixUnit() {
     const q = parseInt(document.getElementById('quantite').value) || 1;
     const base = offreMesure ? 49 : 39;
-    // -2€ par tranche de 50, max 4 tranches
     const tranches = Math.min(Math.floor(q / 50), 4);
     return base - (tranches * 2);
   }
@@ -609,13 +686,26 @@
     const baseUnit = offreMesure ? 49 : 39;
     const pu = getPrixUnit();
     const reduction = baseUnit - pu;
-    const total = q * pu;
-    const fmt = total.toLocaleString('fr-FR') + ' €';
-    const puFmt = pu + ' €/u';
-    document.getElementById('prix-total').textContent = fmt;
-    document.getElementById('pv-prix').textContent = fmt;
+    const autocollantTotal = stickerOn ? q * 0.80 : 0;
+    const total = (q * pu) + autocollantTotal;
+
+    document.getElementById('prix-total').textContent = total.toLocaleString('fr-FR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' €';
+    document.getElementById('pv-prix').textContent = total.toLocaleString('fr-FR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' €';
     const puEl = document.getElementById('pv-pu');
-    if (puEl) puEl.textContent = puFmt;
+    if (puEl) puEl.textContent = pu + ' €/u';
+
+    // ligne autocollant
+    const rowAuto = document.getElementById('row-autocollant-prix');
+    const pvAuto = document.getElementById('pv-autocollant-prix');
+    if (rowAuto && pvAuto) {
+      if (stickerOn && q > 0) {
+        pvAuto.textContent = autocollantTotal.toLocaleString('fr-FR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' €';
+        rowAuto.style.display = 'flex';
+      } else {
+        rowAuto.style.display = 'none';
+      }
+    }
+
     const redEl = document.getElementById('pv-reduction');
     if (redEl) {
       if (reduction > 0) {
@@ -630,111 +720,217 @@
   function updateOffre(type) {
     offreMesure = (type === 'mesure');
     document.getElementById('pv-offre').textContent = offreMesure ? 'Sur mesure' : 'Standard';
-
     const dimsMesure = document.getElementById('dims-mesure');
     const dimsStandard = document.getElementById('dims-standard');
-
     if (offreMesure) {
       dimsStandard.style.display = 'none';
       dimsMesure.style.display = 'flex';
-      // reset preview aux valeurs standard
-      document.getElementById('pv-width').textContent = '80 cm';
-      document.getElementById('pv-height').textContent = '20 cm';
-      document.getElementById('pv-profondeur').textContent = '15 cm';
-      document.getElementById('pv-thick').textContent = '4 mm';
     } else {
       dimsStandard.style.display = 'block';
       dimsMesure.style.display = 'none';
-      document.getElementById('pv-width').textContent = '80 cm';
-      document.getElementById('pv-height').textContent = '20 cm';
-      document.getElementById('pv-profondeur').textContent = '15 cm';
-      document.getElementById('pv-thick').textContent = '4 mm';
     }
+    document.getElementById('pv-width').textContent = offreMesure ? '80 cm' : '60 cm';
+    document.getElementById('pv-height').textContent = '20 cm';
+    document.getElementById('pv-profondeur').textContent = '15 cm';
+    document.getElementById('pv-thick').textContent = '4 mm';
     updatePrix();
-    buildPreview();
+    build3DPreview();
   }
 
-  function buildPreview() {
+  /* ── PLEXI 3D ── */
+  let isDragging = false;
+  let dragStartX = 0;
+  let manualAngle = 0.6;
+
+  function build3DPreview() {
     const visual = document.getElementById('preview-visual');
     visual.innerHTML = '';
-    const qty = Math.min(Math.max(parseInt(document.getElementById('quantite').value) || 1, 1), 99);
-    const width = offreMesure
+
+    const wRaw = offreMesure
       ? parseInt(document.getElementById('slider-width').value)
       : parseInt(document.getElementById('slider-width-std').value);
-    const barW = Math.max(18, Math.min(68, Math.round(width * 0.35)));
-    const shown = Math.min(qty, 7);
-    for (let i = 0; i < shown; i++) {
-      const bar = document.createElement('div');
-      bar.className = 'plexi-bar';
-      bar.style.width = barW + 'px';
+    const hRaw = offreMesure
+      ? parseInt(document.getElementById('slider-hauteur').value)
+      : 20;
+    const pRaw = offreMesure
+      ? parseInt(document.getElementById('slider-profondeur').value)
+      : 15;
+    const eRaw = offreMesure
+      ? parseInt(document.getElementById('slider-epaisseur').value)
+      : 4;
+
+    const W = Math.max(60, Math.min(130, wRaw * 1.1));
+    const H = Math.max(22, Math.min(70,  hRaw * 1.8));
+    const D = Math.max(12, Math.min(50,  pRaw * 1.3));
+    const T = Math.max(3,  Math.min(12,  eRaw * 1.2));
+
+    const canvas = document.createElement('canvas');
+    canvas.width = 230; canvas.height = 160;
+    canvas.style.cssText = 'display:block; margin:0 auto; cursor:grab; touch-action:none;';
+    visual.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+
+    function proj(x, y, z, a) {
+      const cosA = Math.cos(a), sinA = Math.sin(a);
+      const rx = x * cosA - z * sinA;
+      const rz = x * sinA + z * cosA;
+      return {
+        x: canvas.width / 2 + rx,
+        y: canvas.height / 2 + 12 + y - rz * 0.20
+      };
+    }
+
+    function quad(p0, p1, p2, p3, fill, stroke) {
+      ctx.beginPath();
+      ctx.moveTo(p0.x, p0.y);
+      ctx.lineTo(p1.x, p1.y);
+      ctx.lineTo(p2.x, p2.y);
+      ctx.lineTo(p3.x, p3.y);
+      ctx.closePath();
+      ctx.fillStyle = fill;
+      ctx.fill();
+      if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = 0.8; ctx.stroke(); }
+    }
+
+    function drawU(a) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const cFront = 'rgba(200,238,225,0.20)';
+      const cBack  = 'rgba(160,215,200,0.14)';
+      const cTop   = 'rgba(220,245,235,0.28)';
+      const cInner = 'rgba(180,228,215,0.22)';
+      const cOuter = 'rgba(140,200,185,0.18)';
+      const sEdge  = 'rgba(180,232,215,0.55)';
+      const sLight = 'rgba(180,232,215,0.28)';
+
+      const x0 = -W/2, x1 = -W/2 + T;
+      const x2 =  W/2 - T, x3 = W/2;
+      const y0 = -H, y1 = 0;
+      const z0 = 0, z1 = D;
+      const p = (x, y, z) => proj(x, y, z, a);
+
+      // Panneau arrière
+      quad(p(x0,y0,z1), p(x3,y0,z1), p(x3,y1,z1), p(x0,y1,z1), cBack, sLight);
+      quad(p(x0,y0,z1-T), p(x3,y0,z1-T), p(x3,y1,z1-T), p(x0,y1,z1-T), cInner, sLight);
+      quad(p(x0,y0,z1-T), p(x3,y0,z1-T), p(x3,y0,z1), p(x0,y0,z1), cTop, sEdge);
+      quad(p(x0,y1,z1-T), p(x3,y1,z1-T), p(x3,y1,z1), p(x0,y1,z1), cTop, sLight);
+
+      // Côté gauche
+      quad(p(x0,y0,z0), p(x0,y0,z1), p(x0,y1,z1), p(x0,y1,z0), cOuter, sLight);
+      quad(p(x1,y0,z0), p(x1,y0,z1-T), p(x1,y1,z1-T), p(x1,y1,z0), cInner, sEdge);
+      quad(p(x0,y0,z0), p(x1,y0,z0), p(x1,y0,z1-T), p(x0,y0,z1), cTop, sEdge);
+      quad(p(x0,y1,z0), p(x1,y1,z0), p(x1,y1,z1-T), p(x0,y1,z1), cTop, sLight);
+      quad(p(x0,y0,z0), p(x1,y0,z0), p(x1,y1,z0), p(x0,y1,z0), cFront, sEdge);
+
+      // Côté droit
+      quad(p(x3,y0,z0), p(x3,y0,z1), p(x3,y1,z1), p(x3,y1,z0), cOuter, sLight);
+      quad(p(x2,y0,z0), p(x2,y0,z1-T), p(x2,y1,z1-T), p(x2,y1,z0), cInner, sEdge);
+      quad(p(x2,y0,z0), p(x3,y0,z0), p(x3,y0,z1), p(x2,y0,z1-T), cTop, sEdge);
+      quad(p(x2,y1,z0), p(x3,y1,z0), p(x3,y1,z1), p(x2,y1,z1-T), cTop, sLight);
+      quad(p(x2,y0,z0), p(x3,y0,z0), p(x3,y1,z0), p(x2,y1,z0), cFront, sEdge);
+
       if (stickerOn) {
-        const stk = document.createElement('div');
-        stk.className = 'plexi-bar-sticker';
-        bar.appendChild(stk);
+        const sw = (x3-x0)*0.55, sh = H*0.35;
+        const sx = -sw/2, sy = -H*0.65, sz = z1-T-0.5;
+        quad(p(sx,sy,sz), p(sx+sw,sy,sz), p(sx+sw,sy+sh,sz), p(sx,sy+sh,sz),
+          'rgba(61,170,114,0.45)', 'rgba(61,170,114,0.75)');
       }
-      visual.appendChild(bar);
     }
-    if (qty > 7) {
-      const more = document.createElement('div');
-      more.style.cssText = 'display:flex;align-items:center;padding-bottom:8px;color:rgba(255,255,255,0.35);font-size:0.8rem;';
-      more.textContent = '+' + (qty - 7);
-      visual.appendChild(more);
-    }
+
+    // Dessin initial à l'angle courant
+    drawU(manualAngle);
+
+    // Drag souris
+    canvas.addEventListener('mousedown', e => {
+      isDragging = true;
+      dragStartX = e.clientX;
+      canvas.style.cursor = 'grabbing';
+    });
+    window.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      const dx = e.clientX - dragStartX;
+      dragStartX = e.clientX;
+      manualAngle += dx * 0.01;
+      drawU(manualAngle);
+    });
+    window.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      canvas.style.cursor = 'grab';
+    });
+
+    // Touch
+    canvas.addEventListener('touchstart', e => {
+      isDragging = true;
+      dragStartX = e.touches[0].clientX;
+    });
+    canvas.addEventListener('touchmove', e => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const dx = e.touches[0].clientX - dragStartX;
+      dragStartX = e.touches[0].clientX;
+      manualAngle += dx * 0.01;
+      drawU(manualAngle);
+    }, { passive: false });
+    canvas.addEventListener('touchend', () => { isDragging = false; });
   }
 
   function updateWidthStd(v) {
     document.getElementById('display-width-std').textContent = v + ' cm';
     document.getElementById('pv-width').textContent = v + ' cm';
-    buildPreview();
+    build3DPreview();
   }
 
   function updateWidth(v) {
     document.getElementById('display-width').textContent = v + ' cm';
     document.getElementById('pv-width').textContent = v + ' cm';
     document.getElementById('input-largeur').value = v + ' cm';
-    buildPreview();
+    build3DPreview();
   }
 
   function updateHauteur(v) {
     document.getElementById('display-hauteur').textContent = v + ' cm';
     document.getElementById('pv-height').textContent = v + ' cm';
     document.getElementById('input-hauteur').value = v + ' cm';
+    build3DPreview();
   }
 
   function updateProfondeur(v) {
     document.getElementById('display-profondeur').textContent = v + ' cm';
     document.getElementById('pv-profondeur').textContent = v + ' cm';
     document.getElementById('input-profondeur').value = v + ' cm';
+    build3DPreview();
   }
 
   function updateEpaisseur(v) {
     document.getElementById('display-epaisseur').textContent = v + ' mm';
     document.getElementById('pv-thick').textContent = v + ' mm';
     document.getElementById('input-epaisseur').value = v + ' mm';
+    build3DPreview();
   }
 
   function updateSticker(v) {
     stickerOn = v;
     document.getElementById('pv-sticker').textContent = v ? 'Oui' : 'Non';
-    buildPreview();
+    updatePrix();
+    build3DPreview();
   }
 
   function updateSpec() {
     const q = parseInt(document.getElementById('quantite').value) || 0;
     document.getElementById('pv-qty').textContent = q + ' protection' + (q > 1 ? 's' : '');
     updatePrix();
-    buildPreview();
+    build3DPreview();
   }
 
-  // Écouter quantite même en mode standard
   document.getElementById('quantite').addEventListener('input', function() {
     const q = parseInt(this.value) || 0;
     document.getElementById('pv-qty').textContent = q + ' protection' + (q > 1 ? 's' : '');
     updatePrix();
-    buildPreview();
+    build3DPreview();
   });
 
-  buildPreview();
+  build3DPreview();
   updatePrix();
 </script>
 </body>
