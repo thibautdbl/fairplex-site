@@ -336,9 +336,9 @@
     </div>
 </section>
 <section id="produits">
-  <div class="section-tag">Nos offres</div>
+  <div class="section-tag">Notre produit</div>
   <h2 class="section-title" style="display:flex; align-items:center; gap:12px;">
-    Standard ou sur mesure,<br>il y a une solution pour vous.
+    Votre plexiglass,<br>à vos dimensions.
     <span class="tooltip-wrap" style="font-size:1rem;">
       <span class="tooltip-icon" style="width:20px; height:20px; font-size:0.7rem; flex-shrink:0; margin-top:4px;">i</span>
       <span class="tooltip-box tooltip-img" style="left:0; transform:none; bottom:calc(100% + 8px);">
@@ -347,55 +347,23 @@
       </span>
     </span>
   </h2>
-  <p class="section-lead" style="margin-top:0.5rem;">Deux offres claires, deux niveaux de personnalisation.</p>
+  <p class="section-lead" style="margin-top:0.5rem;">Toutes les dimensions à votre choix, découpées au millimètre.</p>
 
-  <div class="produits-grid">
-    <div class="produit-card card-standard">
-      <span class="card-badge badge-standard">Offre standard</span>
-      <h3>Protection étagère standard</h3>
-      <p>Notre protection prête à installer, pensée pour correspondre aux étagères les plus courantes dans les commerces.</p>
-      <div class="produit-specs">
-        <span class="spec">Hauteur : 20 cm</span>
-        <span class="spec">Profondeur : 15 cm</span>
-        <span class="spec">Largeur : au choix</span>
-        <span class="spec">Épaisseur : 4 mm</span>
-        <span class="spec">Plexiglass transparent haute qualité</span>
-        <span class="spec">Installation immédiate, sans outil</span>
-      </div>
-      <div class="produit-price price-standard">
-        <div style="display:flex; align-items:baseline; gap:0.4rem;">
-          <span class="price-amount">39 €</span>
-          <span class="price-unit">/ protection HT</span>
-        </div>
-        <p class="price-note" style="display:flex; align-items:center; gap:6px; margin-top:6px;">
-          Tarif dégressif selon quantité
-          <span class="tooltip-wrap">
-            <span class="tooltip-icon">i</span>
-            <span class="tooltip-box">
-              1–49 pièces : 39 €/u<br>
-              50–99 pièces : 37 €/u<br>
-              100–149 pièces : 35 €/u<br>
-              150–199 pièces : 33 €/u<br>
-              200+ pièces : 31 €/u
-            </span>
-          </span>
-        </p>
-      </div>
-    </div>
-
+  <div style="max-width:600px; margin-top:2rem;">
     <div class="produit-card card-mesure">
-      <span class="card-badge badge-mesure">Sur mesure</span>
+      <span class="card-badge badge-mesure">Votre plexiglass</span>
       <h3>Protection sur mesure</h3>
-      <p>Vos étagères ont des dimensions atypiques ? Nous découpons au millimètre selon vos besoins exacts, après étude de votre demande.</p>
+      <p>Configurez votre protection selon vos étagères exactes. Largeur, hauteur, profondeur, épaisseur — tout est ajustable. Discret, élégant, efficace.</p>
       <div class="produit-specs">
         <span class="spec">Largeur libre — jusqu'à 120 cm</span>
         <span class="spec">Hauteur et profondeur ajustables</span>
         <span class="spec">Épaisseur au choix</span>
+        <span class="spec">Plexiglass transparent haute qualité</span>
         <span class="spec">Option autocollant disponible (0,80 € / étagère)</span>
       </div>
       <div class="produit-price price-mesure">
         <div style="display:flex; align-items:baseline; gap:0.4rem;">
-          <span class="price-amount">49 €</span>
+          <span class="price-amount">29,90 €</span>
           <span class="price-unit">/ protection HT</span>
         </div>
         <p class="price-note" style="display:flex; align-items:center; gap:6px; margin-top:6px;">
@@ -403,16 +371,17 @@
           <span class="tooltip-wrap">
             <span class="tooltip-icon">i</span>
             <span class="tooltip-box">
-              1–49 pièces : 49 €/u<br>
-              50–99 pièces : 47 €/u<br>
-              100–149 pièces : 45 €/u<br>
-              150–199 pièces : 43 €/u<br>
-              200+ pièces : 41 €/u
+              1–49 pièces : 29,90 €/u<br>
+              50–99 pièces : 27,90 €/u<br>
+              100–149 pièces : 25,90 €/u<br>
+              150–199 pièces : 23,90 €/u<br>
+              200+ pièces : 21,90 €/u
             </span>
           </span>
         </p>
       </div>
     </div>
+  </div>
   <!-- Photo rayon en situation -->
   </div>
 </section>
@@ -426,48 +395,11 @@
       <input type="hidden" name="form-name" value="devis-fairplex">
       <p class="hidden"><label>Ne pas remplir : <input name="bot-field"></label></p>
 
-      <!-- TYPE OFFRE -->
-      <div class="form-card">
-        <p class="form-card-title">Type d'offre</p>
-        <div class="form-group">
-          <label>Quelle offre vous convient ?</label>
-          <div class="radio-group">
-            <label class="radio-option">
-              <input type="radio" name="offre" value="Standard — 39€/pièce" checked onchange="updateOffre('standard')">
-              Standard — 39 €/pièce
-            </label>
-            <label class="radio-option">
-              <input type="radio" name="offre" value="Sur mesure — 49€/pièce" onchange="updateOffre('mesure')">
-              Sur mesure — 49 €/pièce
-            </label>
-          </div>
-        </div>
-      </div>
-
       <!-- DIMENSIONS -->
       <div class="form-card">
         <p class="form-card-title">Dimensions</p>
 
-        <!-- STANDARD : largeur modulable, reste fixe -->
-        <div id="dims-standard">
-          <div style="background:var(--green-pale); border-radius:8px; padding:1rem 1.25rem; display:flex; flex-direction:column; gap:10px;">
-            <p style="font-size:0.78rem; color:var(--green); font-weight:500; text-transform:uppercase; letter-spacing:0.1em;">Dimensions — offre standard</p>
-            <div class="form-group">
-              <label style="font-size:0.85rem; font-weight:500; color:var(--navy);">Largeur (cm)</label>
-              <div class="slider-row">
-                <input type="range" id="slider-width-std" min="5" max="75" value="60" step="1" oninput="updateWidthStd(this.value)">
-                <span class="slider-val" id="display-width-std">60 cm</span>
-              </div>
-              <small>De 5 à 75 cm</small>
-            </div>
-            <span style="font-size:0.9rem; color:var(--navy);">Hauteur : <strong>20 cm</strong></span>
-            <span style="font-size:0.9rem; color:var(--navy);">Profondeur : <strong>15 cm</strong></span>
-            <span style="font-size:0.9rem; color:var(--navy);">Épaisseur : <strong>4 mm</strong></span>
-          </div>
-        </div>
-
-        <!-- SUR MESURE : tous les champs modifiables, masqués par défaut -->
-        <div id="dims-mesure" style="display:none; flex-direction:column; gap:0;">
+        <div style="display:flex; flex-direction:column; gap:0;">
           <div class="form-group">
             <label>Largeur (cm)</label>
             <div class="slider-row">
@@ -503,7 +435,7 @@
         </div>
 
         <!-- Champs cachés uniques envoyés à Netlify -->
-        <input type="hidden" name="largeur"    id="hidden-largeur"    value="60 cm">
+        <input type="hidden" name="largeur"    id="hidden-largeur"    value="80 cm">
         <input type="hidden" name="hauteur"    id="hidden-hauteur"    value="20 cm">
         <input type="hidden" name="profondeur" id="hidden-profondeur" value="15 cm">
         <input type="hidden" name="epaisseur"  id="hidden-epaisseur"  value="4 mm">
@@ -589,10 +521,6 @@
       <div class="preview-title">Récapitulatif de votre projet</div>
       <div class="plexi-preview-visual" id="preview-visual"></div>
       <div class="preview-specs">
-        <div class="preview-spec-row">
-          <span class="preview-spec-label">Offre</span>
-          <span class="preview-spec-val" id="pv-offre">Standard</span>
-        </div>
         <div class="preview-spec-row">
           <span class="preview-spec-label">Largeur</span>
           <span class="preview-spec-val" id="pv-width">60 cm</span>
@@ -684,80 +612,42 @@
   }
 
   let stickerOn = false;
-  let offreMesure = false;
+  let offreMesure = true;
   let animFrame = null;
 
   function getPrixUnit() {
     const q = parseInt(document.getElementById('quantite').value) || 1;
-    const base = offreMesure ? 49 : 39;
     const tranches = Math.min(Math.floor(q / 50), 4);
-    return base - (tranches * 2);
+    return Math.round((29.90 - tranches * 2) * 100) / 100;
   }
 
   function updatePrix() {
     const q = parseInt(document.getElementById('quantite').value) || 0;
-    const baseUnit = offreMesure ? 49 : 39;
     const pu = getPrixUnit();
-    const reduction = baseUnit - pu;
-    const autocollantTotal = stickerOn ? q * 0.80 : 0;
-    const total = (q * pu) + autocollantTotal;
+    const reduction = Math.round((29.90 - pu) * 100) / 100;
+    const autocollantTotal = stickerOn ? Math.round(q * 0.80 * 100) / 100 : 0;
+    const total = Math.round((q * pu + autocollantTotal) * 100) / 100;
+    const fmt = v => v.toLocaleString('fr-FR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' €';
 
-    document.getElementById('prix-total').textContent = total.toLocaleString('fr-FR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' €';
-    document.getElementById('pv-prix').textContent = total.toLocaleString('fr-FR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' €';
+    document.getElementById('prix-total').textContent = fmt(total);
+    document.getElementById('pv-prix').textContent = fmt(total);
     const puEl = document.getElementById('pv-pu');
-    if (puEl) puEl.textContent = pu + ' €/u';
+    if (puEl) puEl.textContent = fmt(pu).replace(' €', ' €/u');
 
-    // ligne autocollant
     const rowAuto = document.getElementById('row-autocollant-prix');
     const pvAuto = document.getElementById('pv-autocollant-prix');
     if (rowAuto && pvAuto) {
-      if (stickerOn && q > 0) {
-        pvAuto.textContent = autocollantTotal.toLocaleString('fr-FR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' €';
-        rowAuto.style.display = 'flex';
-      } else {
-        rowAuto.style.display = 'none';
-      }
+      if (stickerOn && q > 0) { pvAuto.textContent = fmt(autocollantTotal); rowAuto.style.display = 'flex'; }
+      else { rowAuto.style.display = 'none'; }
     }
-
     const redEl = document.getElementById('pv-reduction');
     if (redEl) {
-      if (reduction > 0) {
-        redEl.textContent = '−' + reduction + ' €/u';
-        redEl.closest('.preview-spec-row').style.display = 'flex';
-      } else {
-        redEl.closest('.preview-spec-row').style.display = 'none';
-      }
+      if (reduction > 0) { redEl.textContent = '−' + fmt(reduction).replace(' €', ' €/u'); redEl.closest('.preview-spec-row').style.display = 'flex'; }
+      else { redEl.closest('.preview-spec-row').style.display = 'none'; }
     }
   }
 
-  function updateOffre(type) {
-    offreMesure = (type === 'mesure');
-    document.getElementById('pv-offre').textContent = offreMesure ? 'Sur mesure' : 'Standard';
-    const dimsMesure = document.getElementById('dims-mesure');
-    const dimsStandard = document.getElementById('dims-standard');
-    if (offreMesure) {
-      dimsStandard.style.display = 'none';
-      dimsMesure.style.display = 'flex';
-      document.getElementById('hidden-largeur').value = '80 cm';
-      document.getElementById('hidden-hauteur').value = '20 cm';
-      document.getElementById('hidden-profondeur').value = '15 cm';
-      document.getElementById('hidden-epaisseur').value = '4 mm';
-    } else {
-      dimsStandard.style.display = 'block';
-      dimsMesure.style.display = 'none';
-      const stdW = document.getElementById('slider-width-std').value;
-      document.getElementById('hidden-largeur').value = stdW + ' cm';
-      document.getElementById('hidden-hauteur').value = '20 cm';
-      document.getElementById('hidden-profondeur').value = '15 cm';
-      document.getElementById('hidden-epaisseur').value = '4 mm';
-    }
-    document.getElementById('pv-width').textContent = document.getElementById('hidden-largeur').value;
-    document.getElementById('pv-height').textContent = '20 cm';
-    document.getElementById('pv-profondeur').textContent = '15 cm';
-    document.getElementById('pv-thick').textContent = '4 mm';
-    updatePrix();
-    build3DPreview();
-  }
+  function updateOffre() {} // plus utilisé
 
   /* ── PLEXI 3D ── */
   let isDragging = false;
@@ -768,18 +658,10 @@
     const visual = document.getElementById('preview-visual');
     visual.innerHTML = '';
 
-    const wRaw = offreMesure
-      ? parseInt(document.getElementById('slider-width').value)
-      : parseInt(document.getElementById('slider-width-std').value);
-    const hRaw = offreMesure
-      ? parseInt(document.getElementById('slider-hauteur').value)
-      : 20;
-    const pRaw = offreMesure
-      ? parseInt(document.getElementById('slider-profondeur').value)
-      : 15;
-    const eRaw = offreMesure
-      ? parseInt(document.getElementById('slider-epaisseur').value)
-      : 4;
+    const wRaw = parseInt(document.getElementById('slider-width').value);
+    const hRaw = parseInt(document.getElementById('slider-hauteur').value);
+    const pRaw = parseInt(document.getElementById('slider-profondeur').value);
+    const eRaw = parseInt(document.getElementById('slider-epaisseur').value);
 
     // Canvas fixe — le modèle s'adapte dedans
     const CW = 230, CH = 150;
