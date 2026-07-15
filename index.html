@@ -366,19 +366,7 @@
           <span class="price-amount">29,90 €</span>
           <span class="price-unit">/ protection HT</span>
         </div>
-        <p class="price-note" style="display:flex; align-items:center; gap:6px; margin-top:6px;">
-          Tarif dégressif selon quantité
-          <span class="tooltip-wrap">
-            <span class="tooltip-icon">i</span>
-            <span class="tooltip-box">
-              1–49 pièces : 29,90 €/u<br>
-              50–99 pièces : 27,90 €/u<br>
-              100–149 pièces : 25,90 €/u<br>
-              150–199 pièces : 23,90 €/u<br>
-              200+ pièces : 21,90 €/u
-            </span>
-          </span>
-        </p>
+        <p class="price-note" style="margin-top:6px; color:var(--orange); font-weight:500;">🎉 Offre de lancement</p>
       </div>
     </div>
   </div>
@@ -616,15 +604,12 @@
   let animFrame = null;
 
   function getPrixUnit() {
-    const q = parseInt(document.getElementById('quantite').value) || 1;
-    const tranches = Math.min(Math.floor(q / 50), 4);
-    return Math.round((29.90 - tranches * 2) * 100) / 100;
+    return 29.90;
   }
 
   function updatePrix() {
     const q = parseInt(document.getElementById('quantite').value) || 0;
-    const pu = getPrixUnit();
-    const reduction = Math.round((29.90 - pu) * 100) / 100;
+    const pu = 29.90;
     const autocollantTotal = stickerOn ? Math.round(q * 0.80 * 100) / 100 : 0;
     const total = Math.round((q * pu + autocollantTotal) * 100) / 100;
     const fmt = v => v.toLocaleString('fr-FR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' €';
@@ -640,11 +625,9 @@
       if (stickerOn && q > 0) { pvAuto.textContent = fmt(autocollantTotal); rowAuto.style.display = 'flex'; }
       else { rowAuto.style.display = 'none'; }
     }
+
     const redEl = document.getElementById('pv-reduction');
-    if (redEl) {
-      if (reduction > 0) { redEl.textContent = '−' + fmt(reduction).replace(' €', ' €/u'); redEl.closest('.preview-spec-row').style.display = 'flex'; }
-      else { redEl.closest('.preview-spec-row').style.display = 'none'; }
-    }
+    if (redEl) redEl.closest('.preview-spec-row').style.display = 'none';
   }
 
   function updateOffre() {} // plus utilisé
