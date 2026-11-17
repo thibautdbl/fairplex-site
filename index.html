@@ -4,7 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fairplex – Le réflexe antivol</title>
-<meta name="description" content="Fairplex conçoit des protections en plexiglass sur mesure pour les étagères de commerces. Simple, élégant, efficace.">
+<meta name="description" content="Fairplex conçoit des protections antivol en plexiglass sur mesure pour les étagères de commerces. Sans outils, au millimètre, dès 29,90 € HT.">
+<link rel="icon" href="logo.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fairplex.fr/">
+<meta property="og:title" content="Fairplex – Le réflexe antivol">
+<meta property="og:description" content="Protections d'étagères antivol en plexiglass, sur mesure et sans outils. Créé par 3 pharmaciens à Toulouse. Dès 29,90 € HT.">
+<meta property="og:image" content="https://fairplex.fr/logo2.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -57,17 +63,11 @@
   .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: 600; color: #F4F6F8; line-height: 1.2; margin-bottom: 1.25rem; }
   .hero h1 em { color: var(--green); font-style: normal; }
   .hero p { color: rgba(255,255,255,0.7); font-size: 1.05rem; font-weight: 300; margin-bottom: 2.5rem; max-width: 480px; }
+  .hero-price { color: #fff; font-weight: 500; }
   .btn-primary { display: inline-block; background: var(--green); color: #fff; padding: 14px 32px; border-radius: 4px; font-weight: 500; font-size: 0.9rem; text-decoration: none; letter-spacing: 0.02em; cursor: pointer; border: none; transition: background 0.2s, transform 0.15s; }
   .btn-primary:hover { background: #34c47f; transform: translateY(-1px); }
 
   .hero-visual { display: flex; justify-content: center; align-items: center; }
-  .plexi-illustration { position: relative; width: 280px; height: 300px; }
-  .plexi-block { position: absolute; border-radius: 3px; background: rgba(180,220,200,0.15); border: 1.5px solid rgba(180,220,200,0.4); }
-  .plexi-block:nth-child(1) { width: 200px; height: 140px; top: 20px; left: 40px; }
-  .plexi-block:nth-child(2) { width: 160px; height: 110px; top: 80px; left: 80px; background: rgba(180,220,200,0.08); }
-  .plexi-block:nth-child(3) { width: 220px; height: 10px; top: 170px; left: 30px; background: rgba(61,170,114,0.3); border-radius: 2px; }
-  .plexi-block:nth-child(4) { width: 220px; height: 10px; top: 190px; left: 30px; background: rgba(61,170,114,0.2); border-radius: 2px; }
-  .plexi-label { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); background: var(--green); color: white; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 50px; white-space: nowrap; }
 
   /* SECTIONS */
   section { padding: 5rem 4rem; }
@@ -93,14 +93,11 @@
 
   /* PRODUITS */
   #produits { background: var(--cream-dark); }
-  .produits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; }
   .produit-card { background: var(--white); border-radius: 12px; padding: 2.25rem; border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
   .produit-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
-  .produit-card.card-standard::before { background: var(--green); }
   .produit-card.card-mesure::before { background: linear-gradient(to right, var(--orange), var(--red)); }
   .produit-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(43,61,82,0.1); }
   .card-badge { display: inline-block; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px; border-radius: 50px; margin-bottom: 1.25rem; }
-  .card-badge.badge-standard { background: var(--green-pale); color: var(--green); }
   .card-badge.badge-mesure { background: #FDEBD0; color: #c46e10; }
 
   /* Tooltip */
@@ -108,7 +105,7 @@
   .tooltip-icon { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: var(--text-muted); color: white; font-size: 0.65rem; font-weight: 700; cursor: pointer; font-style: normal; flex-shrink: 0; }
   .tooltip-box { display: none; position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--navy); color: #fff; font-size: 0.78rem; line-height: 1.7; padding: 10px 14px; border-radius: 8px; white-space: nowrap; z-index: 10; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
   .tooltip-box::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--navy); }
-  .tooltip-wrap:hover .tooltip-box { display: block; }
+  .tooltip-wrap:hover .tooltip-box, .tooltip-wrap:focus-within .tooltip-box { display: block; }
   .tooltip-img { padding: 10px; white-space: normal; width: auto; }
   .produit-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; color: var(--navy); margin-bottom: 0.75rem; }
   .produit-card p { font-size: 0.92rem; color: var(--text-muted); font-weight: 300; line-height: 1.7; }
@@ -116,14 +113,13 @@
   .spec { font-size: 0.82rem; color: var(--navy-mid); font-weight: 500; display: flex; align-items: center; gap: 6px; }
   .spec::before { content: '—'; color: var(--green); font-weight: 400; }
   .produit-price { margin-top: 1.5rem; padding: 1rem 1.25rem; border-radius: 8px; }
-  .produit-price.price-standard { background: var(--green-pale); }
   .produit-price.price-mesure { background: #FDEBD0; }
   .price-amount { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 600; color: var(--navy); }
   .price-unit { font-size: 0.85rem; color: var(--text-muted); font-weight: 300; }
   .price-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; }
 
   /* CONFIGURATEUR */
-  #configurateur { background: var(--white); }
+  #configurateur { background: var(--cream-dark); }
   .config-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; margin-top: 3rem; align-items: start; }
   .config-form { display: flex; flex-direction: column; gap: 1.5rem; }
   .form-card { background: var(--cream); border-radius: 10px; padding: 1.75rem; border: 1px solid var(--border); }
@@ -137,10 +133,10 @@
   .form-group small { font-size: 0.78rem; color: var(--text-muted); }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .slider-row { display: flex; align-items: center; gap: 1rem; }
-  .slider-row input[type=range] { flex: 1; accent-color: var(--navy); cursor: pointer; }
+  .slider-row input[type=range] { flex: 1; accent-color: var(--navy); cursor: pointer; padding: 0; border: none; background: none; }
   .slider-val { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; color: var(--navy); min-width: 64px; text-align: right; }
   .radio-group { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  .radio-option { display: flex; align-items: center; gap: 8px; background: var(--white); border: 1.5px solid var(--border); border-radius: 6px; padding: 9px 16px; cursor: pointer; font-size: 0.875rem; color: var(--text-dark); transition: border-color 0.2s, background 0.2s; user-select: none; }
+  .radio-option { display: flex; align-items: center; gap: 8px; background: var(--white); border: 1.5px solid var(--border); border-radius: 6px; padding: 9px 16px; cursor: pointer; font-size: 0.875rem; color: var(--text-dark); transition: border-color 0.2s, background 0.2s; user-select: none; white-space: nowrap; }
   .radio-option input[type=radio] { accent-color: var(--green); }
   .radio-option:has(input:checked) { border-color: var(--green); background: var(--green-pale); color: var(--navy); font-weight: 500; }
   .hidden { display: none; }
@@ -159,15 +155,18 @@
   .config-preview { background: var(--navy); border-radius: 12px; padding: 2.5rem; position: sticky; top: 100px; overflow: hidden; }
   .config-preview::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue)); }
   .preview-title { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); margin-bottom: 1.5rem; font-weight: 500; }
-  .plexi-preview-visual { display: flex; justify-content: center; align-items: center; height: 150px; margin-bottom: 1.25rem; overflow: hidden; cursor: grab; }
+  .plexi-preview-visual { display: flex; justify-content: center; align-items: center; height: 150px; margin-bottom: 0.5rem; overflow: hidden; cursor: grab; }
   .plexi-preview-visual:active { cursor: grabbing; }
-  .plexi-bar { background: rgba(180,220,200,0.18); border: 1.5px solid rgba(180,220,200,0.45); border-radius: 3px; position: relative; height: 100px; transition: width 0.35s ease; flex-shrink: 0; }
-  .plexi-bar-sticker { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70%; height: 28%; background: rgba(61,170,114,0.5); border-radius: 2px; }
+  .preview-hint { text-align: center; font-size: 0.72rem; color: rgba(255,255,255,0.35); margin-bottom: 1rem; }
   .preview-specs { display: flex; flex-direction: column; }
   .preview-spec-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
   .preview-spec-row:last-child { border-bottom: none; }
   .preview-spec-label { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
   .preview-spec-val { font-size: 0.9rem; color: #F4F6F8; font-weight: 500; }
+  .preview-spec-row.row-sep { margin-top: 0.5rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.15); }
+  .preview-spec-row.row-sep .preview-spec-label, .preview-spec-row.row-sub .preview-spec-label { color: rgba(255,255,255,0.6); }
+  .preview-spec-row.row-total .preview-spec-label { color: rgba(255,255,255,0.8); font-weight: 500; }
+  .preview-spec-row.row-total .preview-spec-val { color: #3DAA72; font-size: 1.15rem; }
 
   /* CONTACT */
   .contact-bar { background: var(--navy); padding: 3.5rem 4rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; border-top: 3px solid transparent; border-image: linear-gradient(to right, var(--red), var(--orange), var(--yellow), var(--green), var(--blue)) 1; }
@@ -176,12 +175,15 @@
   .contact-info { display: flex; gap: 2.5rem; flex-wrap: wrap; }
   .contact-item { display: flex; flex-direction: column; }
   .contact-item-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); margin-bottom: 4px; }
-  .contact-item-val { color: #F4F6F8; font-size: 0.95rem; }
+  .contact-item-val { color: #F4F6F8; font-size: 0.95rem; text-decoration: none; }
+  a.contact-item-val:hover { color: var(--green-pale); text-decoration: underline; }
 
   /* FOOTER */
-  footer { background: #1A2533; padding: 1.75rem 4rem; display: flex; align-items: center; justify-content: space-between; }
+  footer { background: #1A2533; padding: 1.75rem 4rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .footer-logo img { height: 40px; width: auto; opacity: 0.5; }
-  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+  .footer-copy a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .footer-copy a:hover { color: #fff; }
 
   /* HAMBURGER */
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
@@ -189,6 +191,8 @@
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
@@ -231,7 +235,6 @@
     .about-stats { flex-wrap: wrap; gap: 1.5rem; }
 
     /* PRODUITS */
-    .produits-grid { grid-template-columns: 1fr; gap: 1.25rem; }
     .produit-card { padding: 1.5rem; }
     .price-amount { font-size: 1.6rem; }
 
@@ -266,12 +269,12 @@
   <a href="#" class="nav-logo">
     <img src="logo2.jpg" alt="Fairplex – le réflexe antivol">
   </a>
-  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+  <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="nav-links">
     <li><a href="#about" onclick="closeMenu()">À propos</a></li>
-    <li><a href="#produits" onclick="closeMenu()">Nos offres</a></li>
+    <li><a href="#produits" onclick="closeMenu()">Notre offre</a></li>
     <li><a href="#configurateur" onclick="closeMenu()">Devis</a></li>
     <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
   </ul>
@@ -282,7 +285,7 @@
   <div>
     <div class="hero-tag">Le réflexe antivol pour vos commerces</div>
     <h1>Le plexiglass qui <em>protège</em> vos produits.</h1>
-    <p>Fairplex conçoit des protections d'étagères antivols en plexiglass, pratiques, élégantes et discrètes — pour tous les commerces.</p>
+    <p>Fairplex conçoit des protections d'étagères antivols en plexiglass, pratiques, élégantes et discrètes, pour tous les commerces. Sur mesure, sans outils, <span class="hero-price">dès 29,90 € HT</span>.</p>
     <a href="#configurateur" class="btn-primary">Faire une demande de devis</a>
   </div>
   <div class="hero-visual">
@@ -293,7 +296,7 @@
 <!-- À PROPOS -->
 <section id="about">
   <div class="section-tag">Qui sommes-nous</div>
-  <h2 class="section-title">Trois professionnels de terrain,<br>une solution concrète.</h2>
+  <h2 class="section-title">Trois pharmaciens de terrain,<br>une solution concrète.</h2>
   <div class="about-grid">
     <div>
       <p style="font-size:1.05rem; color:var(--text-dark); line-height:1.85; font-style:italic; border-left:4px solid var(--green); padding-left:1.25rem; margin-bottom:1.5rem;">
@@ -303,12 +306,20 @@
         Nous sommes trois pharmaciens, confrontés chaque jour aux mêmes problématiques que nos confrères : les vols, les produits déplacés, les rayons à refaire. Nous voulions une solution simple, élégante et efficace.
       </p>
       <p style="color:var(--text-muted); font-weight:300; font-size:0.97rem; line-height:1.8; margin-top:1rem;">
-        Le déclic est venu après plusieurs vols sur une même gamme de produits en quelques semaines. Aujourd'hui notre mission est simple : proposer des protections d'étagères, pratiques, élégantes, discrètes et faciles à installer — pour tous les commerces.
+        Le déclic est venu après plusieurs vols sur une même gamme de produits en quelques semaines. Aujourd'hui notre mission est simple : proposer des protections d'étagères pratiques, élégantes, discrètes et faciles à installer, pour tous les commerces.
       </p>
       <div class="about-stats">
         <div class="about-stat">
           <span class="stat-num">3</span>
-          <span class="stat-label">fondateurs</span>
+          <span class="stat-label">fondateurs pharmaciens</span>
+        </div>
+        <div class="about-stat">
+          <span class="stat-num">0</span>
+          <span class="stat-label">outil nécessaire à la pose</span>
+        </div>
+        <div class="about-stat">
+          <span class="stat-num">120&nbsp;cm</span>
+          <span class="stat-label">de largeur maximum</span>
         </div>
       </div>
       <!-- Photo équipe juste sous les stats -->
@@ -327,19 +338,22 @@
       </div>
       <div class="value-item">
         <h4>Dimensions adaptées</h4>
-        <p>Format standard pour une installation rapide, ou sur mesure pour les configurations atypiques. Vous choisissez.</p>
+        <p>Chaque protection est découpée aux dimensions de vos étagères, même pour les configurations atypiques.</p>
       </div>
       <div class="value-item">
         <h4>Pour tous les commerces</h4>
-        <p>Conçu par des professionnels du commerce de détail, pour tous ceux qui font face aux mêmes défis au quotidien.</p>
+        <p>Pharmacies, parapharmacies, boutiques : conçu par des professionnels du commerce de détail, pour tous ceux qui font face aux mêmes défis au quotidien.</p>
       </div>
     </div>
+  </div>
 </section>
+
+<!-- PRODUIT -->
 <section id="produits">
   <div class="section-tag">Notre produit</div>
   <h2 class="section-title" style="display:flex; align-items:center; gap:12px;">
     Votre plexiglass,<br>à vos dimensions.
-    <span class="tooltip-wrap" style="font-size:1rem;">
+    <span class="tooltip-wrap" style="font-size:1rem;" tabindex="0" aria-label="Voir le produit en situation">
       <span class="tooltip-icon" style="width:20px; height:20px; font-size:0.7rem; flex-shrink:0; margin-top:4px;">i</span>
       <span class="tooltip-box tooltip-img" style="left:0; transform:none; bottom:calc(100% + 8px);">
         <img src="rayon.jpg" alt="Produit en situation" style="width:180px; border-radius:6px; display:block;">
@@ -353,11 +367,11 @@
     <div class="produit-card card-mesure">
       <span class="card-badge badge-mesure">Votre plexiglass</span>
       <h3>Protection sur mesure</h3>
-      <p>Configurez votre protection selon vos étagères exactes. Largeur, hauteur, profondeur, épaisseur — tout est ajustable. Discret, élégant, efficace.</p>
+      <p>Configurez votre protection selon vos étagères exactes. Largeur, hauteur, profondeur, épaisseur : tout est ajustable. Discret, élégant, efficace.</p>
       <div class="produit-specs">
-        <span class="spec">Largeur libre — jusqu'à 120 cm</span>
-        <span class="spec">Hauteur et profondeur ajustables</span>
-        <span class="spec">Épaisseur au choix</span>
+        <span class="spec">Largeur libre, jusqu'à 120 cm</span>
+        <span class="spec">Hauteur et profondeur de 5 à 60 cm</span>
+        <span class="spec">Épaisseur de 2 à 10 mm</span>
         <span class="spec">Plexiglass transparent haute qualité</span>
         <span class="spec">Option autocollant disponible (0,80 € / étagère)</span>
       </div>
@@ -370,16 +384,16 @@
       </div>
     </div>
   </div>
-  <!-- Photo rayon en situation -->
-  </div>
 </section>
-<section id="configurateur" style="background:var(--cream-dark);">
+
+<!-- CONFIGURATEUR -->
+<section id="configurateur">
   <div class="section-tag">Configurateur &amp; Devis</div>
   <h2 class="section-title">Configurez votre commande<br>et demandez un devis.</h2>
   <p class="section-lead" style="margin-top:0.5rem;">Renseignez vos dimensions, vos options et vos coordonnées.</p>
 
   <div class="config-layout">
-    <form name="devis-fairplex" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html" class="config-form" id="devis-form">
+    <form action="/merci" class="config-form" id="devis-form" method="POST" name="devis-fairplex" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="devis-fairplex">
       <p class="hidden"><label>Ne pas remplir : <input name="bot-field"></label></p>
 
@@ -389,7 +403,7 @@
 
         <div style="display:flex; flex-direction:column; gap:0;">
           <div class="form-group">
-            <label>Largeur (cm)</label>
+            <label for="slider-width">Largeur (cm)</label>
             <div class="slider-row">
               <input type="range" id="slider-width" min="5" max="120" value="80" step="1" oninput="updateWidth(this.value)">
               <span class="slider-val" id="display-width">80 cm</span>
@@ -397,7 +411,7 @@
             <small>De 5 à 120 cm</small>
           </div>
           <div class="form-group">
-            <label>Hauteur (cm)</label>
+            <label for="slider-hauteur">Hauteur (cm)</label>
             <div class="slider-row">
               <input type="range" id="slider-hauteur" min="5" max="60" value="20" step="1" oninput="updateHauteur(this.value)">
               <span class="slider-val" id="display-hauteur">20 cm</span>
@@ -405,7 +419,7 @@
             <small>De 5 à 60 cm</small>
           </div>
           <div class="form-group">
-            <label>Profondeur (cm)</label>
+            <label for="slider-profondeur">Profondeur (cm)</label>
             <div class="slider-row">
               <input type="range" id="slider-profondeur" min="5" max="60" value="15" step="1" oninput="updateProfondeur(this.value)">
               <span class="slider-val" id="display-profondeur">15 cm</span>
@@ -413,7 +427,7 @@
             <small>De 5 à 60 cm</small>
           </div>
           <div class="form-group">
-            <label>Épaisseur (mm)</label>
+            <label for="slider-epaisseur">Épaisseur (mm)</label>
             <div class="slider-row">
               <input type="range" id="slider-epaisseur" min="2" max="10" value="4" step="1" oninput="updateEpaisseur(this.value)">
               <span class="slider-val" id="display-epaisseur">4 mm</span>
@@ -422,16 +436,18 @@
           </div>
         </div>
 
-        <!-- Champs cachés uniques envoyés à Netlify -->
-        <input type="hidden" name="largeur"    id="hidden-largeur"    value="80 cm">
-        <input type="hidden" name="hauteur"    id="hidden-hauteur"    value="20 cm">
-        <input type="hidden" name="profondeur" id="hidden-profondeur" value="15 cm">
-        <input type="hidden" name="epaisseur"  id="hidden-epaisseur"  value="4 mm">
+        <!-- Champs cachés envoyés à Netlify -->
+        <input type="hidden" name="largeur"        id="hidden-largeur"        value="80 cm">
+        <input type="hidden" name="hauteur"        id="hidden-hauteur"        value="20 cm">
+        <input type="hidden" name="profondeur"     id="hidden-profondeur"     value="15 cm">
+        <input type="hidden" name="epaisseur"      id="hidden-epaisseur"      value="4 mm">
+        <input type="hidden" name="prix_unitaire"  id="hidden-prix-unitaire"  value="29,90 € HT">
+        <input type="hidden" name="total_estime"   id="hidden-total"          value="299,00 € HT">
 
         <!-- Quantité directement sous les dimensions -->
         <div class="form-group" style="margin-top:1rem;">
           <label for="quantite">Quantité souhaitée</label>
-          <input type="number" id="quantite" name="quantite" min="1" value="10" placeholder="Ex : 20" oninput="updateSpec()">
+          <input type="number" id="quantite" name="quantite" min="1" value="10" placeholder="Ex : 20" inputmode="numeric">
         </div>
       </div>
 
@@ -441,7 +457,7 @@
         <div class="form-group">
           <label style="display:flex; align-items:center; gap:8px;">
             Autocollant (0,80 € / étagère)
-            <span class="tooltip-wrap">
+            <span class="tooltip-wrap" tabindex="0" aria-label="Voir un exemple d'autocollant">
               <span class="tooltip-icon">i</span>
               <span class="tooltip-box tooltip-img">
                 <img src="autocollant-exemple.jpg" alt="Exemple autocollant" style="width:220px; border-radius:6px; display:block;">
@@ -464,9 +480,9 @@
       <div class="prix-estime">
         <div>
           <div class="prix-estime-label">Estimation totale</div>
-          <div class="prix-estime-note">HT — autocollant inclus si sélectionné</div>
+          <div class="prix-estime-note">HT, autocollant inclus si sélectionné</div>
         </div>
-        <div class="prix-estime-val" id="prix-total">390 €</div>
+        <div class="prix-estime-val" id="prix-total" aria-live="polite">299,00 €</div>
       </div>
 
       <!-- COORDONNÉES -->
@@ -475,24 +491,24 @@
         <div class="form-row">
           <div class="form-group">
             <label for="prenom">Prénom *</label>
-            <input type="text" id="prenom" name="prenom" placeholder="Jean" required>
+            <input type="text" id="prenom" name="prenom" placeholder="Jean" autocomplete="given-name" required>
           </div>
           <div class="form-group">
             <label for="nom">Nom *</label>
-            <input type="text" id="nom" name="nom" placeholder="Dupont" required>
+            <input type="text" id="nom" name="nom" placeholder="Dupont" autocomplete="family-name" required>
           </div>
         </div>
         <div class="form-group">
           <label for="societe">Commerce / Enseigne</label>
-          <input type="text" id="societe" name="societe" placeholder="Mon Commerce">
+          <input type="text" id="societe" name="societe" placeholder="Mon Commerce" autocomplete="organization">
         </div>
         <div class="form-group">
           <label for="email">Email *</label>
-          <input type="email" id="email" name="email" placeholder="contact@moncommerce.fr" required>
+          <input type="email" id="email" name="email" placeholder="contact@moncommerce.fr" autocomplete="email" required>
         </div>
         <div class="form-group">
           <label for="telephone">Téléphone</label>
-          <input type="tel" id="telephone" name="telephone" placeholder="06 00 00 00 00">
+          <input type="tel" id="telephone" name="telephone" placeholder="06 00 00 00 00" autocomplete="tel">
         </div>
         <div class="form-group">
           <label for="commentaires">Commentaires / Précisions</label>
@@ -508,10 +524,11 @@
     <div class="config-preview">
       <div class="preview-title">Récapitulatif de votre projet</div>
       <div class="plexi-preview-visual" id="preview-visual"></div>
+      <p class="preview-hint">Faites glisser pour faire tourner l'aperçu</p>
       <div class="preview-specs">
         <div class="preview-spec-row">
           <span class="preview-spec-label">Largeur</span>
-          <span class="preview-spec-val" id="pv-width">60 cm</span>
+          <span class="preview-spec-val" id="pv-width">80 cm</span>
         </div>
         <div class="preview-spec-row">
           <span class="preview-spec-label">Hauteur</span>
@@ -533,21 +550,17 @@
           <span class="preview-spec-label">Quantité</span>
           <span class="preview-spec-val" id="pv-qty">10 protections</span>
         </div>
-        <div class="preview-spec-row" style="margin-top:0.5rem; padding-top:0.75rem; border-top:1px solid rgba(255,255,255,0.15) !important;">
-          <span class="preview-spec-label" style="color:rgba(255,255,255,0.6);">Prix unitaire</span>
-          <span class="preview-spec-val" id="pv-pu" style="color:#F4F6F8;">39 €/u</span>
+        <div class="preview-spec-row row-sep">
+          <span class="preview-spec-label">Prix unitaire</span>
+          <span class="preview-spec-val" id="pv-pu">29,90 € HT</span>
         </div>
-        <div class="preview-spec-row" id="row-autocollant-prix" style="display:none;">
-          <span class="preview-spec-label" style="color:rgba(255,255,255,0.6);">Autocollants</span>
-          <span class="preview-spec-val" id="pv-autocollant-prix" style="color:#F4F6F8;">0 €</span>
+        <div class="preview-spec-row row-sub" id="row-autocollant-prix" style="display:none;">
+          <span class="preview-spec-label">Autocollants</span>
+          <span class="preview-spec-val" id="pv-autocollant-prix">0,00 €</span>
         </div>
-        <div class="preview-spec-row">
-          <span class="preview-spec-label" style="color:#F08A1E;">Réduction appliquée</span>
-          <span class="preview-spec-val" id="pv-reduction" style="color:#F08A1E;">— €</span>
-        </div>
-        <div class="preview-spec-row">
-          <span class="preview-spec-label" style="color:rgba(255,255,255,0.8); font-weight:500;">Total estimé HT</span>
-          <span class="preview-spec-val" id="pv-prix" style="color:#3DAA72; font-size:1.15rem;">390 €</span>
+        <div class="preview-spec-row row-total">
+          <span class="preview-spec-label">Total estimé HT</span>
+          <span class="preview-spec-val" id="pv-prix">299,00 €</span>
         </div>
       </div>
     </div>
@@ -563,19 +576,23 @@
   <div class="contact-info">
     <div class="contact-item">
       <span class="contact-item-label">Email</span>
-      <span class="contact-item-val">contact@fairplex.fr</span>
+      <a class="contact-item-val" href="mailto:contact@fairplex.fr">contact@fairplex.fr</a>
     </div>
     <div class="contact-item">
       <span class="contact-item-label">Thibaut Delbello</span>
-      <span class="contact-item-val">06 40 41 22 58</span>
+      <a class="contact-item-val" href="tel:+33640412258">06 40 41 22 58</a>
     </div>
     <div class="contact-item">
       <span class="contact-item-label">Marie Guilhaumon</span>
-      <span class="contact-item-val">06 27 88 64 78</span>
+      <a class="contact-item-val" href="tel:+33627886478">06 27 88 64 78</a>
     </div>
     <div class="contact-item">
       <span class="contact-item-label">Guiot Bryan</span>
-      <span class="contact-item-val">06 21 70 95 28</span>
+      <a class="contact-item-val" href="tel:+33621709528">06 21 70 95 28</a>
+    </div>
+    <div class="contact-item">
+      <span class="contact-item-label">Instagram</span>
+      <a class="contact-item-val" href="https://www.instagram.com/fairplex.fr/" target="_blank" rel="noopener">@fairplex.fr</a>
     </div>
   </div>
 </div>
@@ -584,58 +601,76 @@
   <div class="footer-logo">
     <img src="logo.jpg" alt="Fairplex">
   </div>
-  <div class="footer-copy">© 2025 Fairplex — Tous droits réservés</div>
+  <div class="footer-copy">© <span id="year">2026</span> Fairplex SAS · Toulouse · <a href="https://www.instagram.com/fairplex.fr/" target="_blank" rel="noopener">Instagram</a></div>
 </footer>
 
 <script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
   function toggleMenu() {
     const nav = document.getElementById('nav-links');
     const btn = document.getElementById('hamburger');
-    nav.classList.toggle('open');
-    btn.classList.toggle('open');
+    const open = nav.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
   }
   function closeMenu() {
     document.getElementById('nav-links').classList.remove('open');
-    document.getElementById('hamburger').classList.remove('open');
+    const btn = document.getElementById('hamburger');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
   }
 
+  /* ── PRIX ── */
+  const PRIX_UNITAIRE = 29.90;     // offre de lancement, € HT par protection
+  const PRIX_AUTOCOLLANT = 0.80;   // € HT par étagère
   let stickerOn = false;
-  let offreMesure = true;
-  let animFrame = null;
 
-  function getPrixUnit() {
-    return 29.90;
+  const fmt = v => v.toLocaleString('fr-FR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' €';
+
+  function getQuantite() {
+    return Math.max(0, parseInt(document.getElementById('quantite').value) || 0);
   }
 
   function updatePrix() {
-    const q = parseInt(document.getElementById('quantite').value) || 0;
-    const pu = 29.90;
-    const autocollantTotal = stickerOn ? Math.round(q * 0.80 * 100) / 100 : 0;
-    const total = Math.round((q * pu + autocollantTotal) * 100) / 100;
-    const fmt = v => v.toLocaleString('fr-FR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' €';
+    const q = getQuantite();
+    const autocollantTotal = stickerOn ? Math.round(q * PRIX_AUTOCOLLANT * 100) / 100 : 0;
+    const total = Math.round((q * PRIX_UNITAIRE + autocollantTotal) * 100) / 100;
 
     document.getElementById('prix-total').textContent = fmt(total);
     document.getElementById('pv-prix').textContent = fmt(total);
-    const puEl = document.getElementById('pv-pu');
-    if (puEl) puEl.textContent = fmt(pu).replace(' €', ' €/u');
+    document.getElementById('pv-pu').textContent = fmt(PRIX_UNITAIRE) + ' HT';
+    document.getElementById('hidden-prix-unitaire').value = fmt(PRIX_UNITAIRE) + ' HT';
+    document.getElementById('hidden-total').value = fmt(total) + ' HT';
 
     const rowAuto = document.getElementById('row-autocollant-prix');
-    const pvAuto = document.getElementById('pv-autocollant-prix');
-    if (rowAuto && pvAuto) {
-      if (stickerOn && q > 0) { pvAuto.textContent = fmt(autocollantTotal); rowAuto.style.display = 'flex'; }
-      else { rowAuto.style.display = 'none'; }
+    if (stickerOn && q > 0) {
+      document.getElementById('pv-autocollant-prix').textContent = fmt(autocollantTotal);
+      rowAuto.style.display = 'flex';
+    } else {
+      rowAuto.style.display = 'none';
     }
-
-    const redEl = document.getElementById('pv-reduction');
-    if (redEl) redEl.closest('.preview-spec-row').style.display = 'none';
   }
-
-  function updateOffre() {} // plus utilisé
 
   /* ── PLEXI 3D ── */
   let isDragging = false;
   let dragStartX = 0;
   let manualAngle = 0.6;
+  let currentDraw = null;     // dessin du modèle courant
+  let currentCanvas = null;
+
+  // Écouteurs globaux posés une seule fois (avant : ajoutés à chaque reconstruction)
+  window.addEventListener('mousemove', e => {
+    if (!isDragging || !currentDraw) return;
+    manualAngle += (e.clientX - dragStartX) * 0.01;
+    dragStartX = e.clientX;
+    currentDraw(manualAngle);
+  });
+  window.addEventListener('mouseup', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    if (currentCanvas) currentCanvas.style.cursor = 'grab';
+  });
 
   function build3DPreview() {
     const visual = document.getElementById('preview-visual');
@@ -646,14 +681,14 @@
     const pRaw = parseInt(document.getElementById('slider-profondeur').value);
     const eRaw = parseInt(document.getElementById('slider-epaisseur').value);
 
-    // Canvas fixe — le modèle s'adapte dedans
+    // Canvas fixe, le modèle s'adapte dedans
     const CW = 230, CH = 150;
 
-    const SCALE_W = 110 / 70;  // largeur : 70cm = 110px
-    const SCALE_H = 40 / 20;   // hauteur : 20cm = 40px mais clampé
+    const SCALE_W = 110 / 70;  // largeur : 70 cm = 110 px
+    const SCALE_H = 40 / 20;   // hauteur : 20 cm = 40 px, plafonné
 
     const Wb = wRaw * SCALE_W;
-    const Hb = Math.min(hRaw * SCALE_H, 70); // max visuel 70px comme avant
+    const Hb = Math.min(hRaw * SCALE_H, 70);
 
     const maxW = CW - 30;
     const maxH = CH - 30;
@@ -667,11 +702,15 @@
     const T = Math.max(2.5, eRaw * SCALE_W * reduce * 0.4);
 
     const canvas = document.createElement('canvas');
-    canvas.width  = CW;
-    canvas.height = CH;
-    canvas.style.cssText = 'display:block; margin:0 auto; cursor:grab; touch-action:none;';
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width  = CW * dpr;
+    canvas.height = CH * dpr;
+    canvas.style.cssText = 'display:block; margin:0 auto; cursor:grab; touch-action:none; width:' + CW + 'px; height:' + CH + 'px;';
+    canvas.setAttribute('role', 'img');
+    canvas.setAttribute('aria-label', 'Aperçu 3D de la protection : ' + wRaw + ' × ' + hRaw + ' × ' + pRaw + ' cm');
     visual.appendChild(canvas);
     const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
 
     function proj(x, y, z, a) {
       const cosA = Math.cos(a), sinA = Math.sin(a);
@@ -696,7 +735,7 @@
     }
 
     function drawU(a) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, CW, CH);
 
       const cFront = 'rgba(200,238,225,0.20)';
       const cBack  = 'rgba(160,215,200,0.14)';
@@ -740,78 +779,43 @@
       }
     }
 
-    // Dessin initial à l'angle courant
     drawU(manualAngle);
+    currentDraw = drawU;
+    currentCanvas = canvas;
 
-    // Drag souris
+    // Souris
     canvas.addEventListener('mousedown', e => {
       isDragging = true;
       dragStartX = e.clientX;
       canvas.style.cursor = 'grabbing';
     });
-    window.addEventListener('mousemove', e => {
-      if (!isDragging) return;
-      const dx = e.clientX - dragStartX;
-      dragStartX = e.clientX;
-      manualAngle += dx * 0.01;
-      drawU(manualAngle);
-    });
-    window.addEventListener('mouseup', () => {
-      if (!isDragging) return;
-      isDragging = false;
-      canvas.style.cursor = 'grab';
-    });
 
-    // Touch
+    // Tactile
     canvas.addEventListener('touchstart', e => {
       isDragging = true;
       dragStartX = e.touches[0].clientX;
-    });
+    }, { passive: true });
     canvas.addEventListener('touchmove', e => {
       if (!isDragging) return;
       e.preventDefault();
-      const dx = e.touches[0].clientX - dragStartX;
+      manualAngle += (e.touches[0].clientX - dragStartX) * 0.01;
       dragStartX = e.touches[0].clientX;
-      manualAngle += dx * 0.01;
       drawU(manualAngle);
     }, { passive: false });
     canvas.addEventListener('touchend', () => { isDragging = false; });
   }
 
-  function updateWidthStd(v) {
-    document.getElementById('display-width-std').textContent = v + ' cm';
-    document.getElementById('pv-width').textContent = v + ' cm';
-    document.getElementById('hidden-largeur').value = v + ' cm';
+  /* ── MISES À JOUR DES CHAMPS ── */
+  function setDim(key, displayId, pvId, hiddenId, v, unit) {
+    document.getElementById(displayId).textContent = v + ' ' + unit;
+    document.getElementById(pvId).textContent = v + ' ' + unit;
+    document.getElementById(hiddenId).value = v + ' ' + unit;
     build3DPreview();
   }
-
-  function updateWidth(v) {
-    document.getElementById('display-width').textContent = v + ' cm';
-    document.getElementById('pv-width').textContent = v + ' cm';
-    document.getElementById('hidden-largeur').value = v + ' cm';
-    build3DPreview();
-  }
-
-  function updateHauteur(v) {
-    document.getElementById('display-hauteur').textContent = v + ' cm';
-    document.getElementById('pv-height').textContent = v + ' cm';
-    document.getElementById('hidden-hauteur').value = v + ' cm';
-    build3DPreview();
-  }
-
-  function updateProfondeur(v) {
-    document.getElementById('display-profondeur').textContent = v + ' cm';
-    document.getElementById('pv-profondeur').textContent = v + ' cm';
-    document.getElementById('hidden-profondeur').value = v + ' cm';
-    build3DPreview();
-  }
-
-  function updateEpaisseur(v) {
-    document.getElementById('display-epaisseur').textContent = v + ' mm';
-    document.getElementById('pv-thick').textContent = v + ' mm';
-    document.getElementById('hidden-epaisseur').value = v + ' mm';
-    build3DPreview();
-  }
+  function updateWidth(v)      { setDim('w', 'display-width',      'pv-width',      'hidden-largeur',    v, 'cm'); }
+  function updateHauteur(v)    { setDim('h', 'display-hauteur',    'pv-height',     'hidden-hauteur',    v, 'cm'); }
+  function updateProfondeur(v) { setDim('p', 'display-profondeur', 'pv-profondeur', 'hidden-profondeur', v, 'cm'); }
+  function updateEpaisseur(v)  { setDim('e', 'display-epaisseur',  'pv-thick',      'hidden-epaisseur',  v, 'mm'); }
 
   function updateSticker(v) {
     stickerOn = v;
@@ -821,21 +825,26 @@
   }
 
   function updateSpec() {
-    const q = parseInt(document.getElementById('quantite').value) || 0;
+    const q = getQuantite();
     document.getElementById('pv-qty').textContent = q + ' protection' + (q > 1 ? 's' : '');
     updatePrix();
-    build3DPreview();
   }
+  document.getElementById('quantite').addEventListener('input', updateSpec);
 
-  document.getElementById('quantite').addEventListener('input', function() {
-    const q = parseInt(this.value) || 0;
-    document.getElementById('pv-qty').textContent = q + ' protection' + (q > 1 ? 's' : '');
-    updatePrix();
-    build3DPreview();
-  });
-
-  build3DPreview();
-  updatePrix();
+  /* ── INITIALISATION ──
+     Le navigateur peut restaurer les valeurs du formulaire au rechargement :
+     on resynchronise tout l'affichage à partir des champs réels. */
+  function syncAll() {
+    updateWidth(document.getElementById('slider-width').value);
+    updateHauteur(document.getElementById('slider-hauteur').value);
+    updateProfondeur(document.getElementById('slider-profondeur').value);
+    updateEpaisseur(document.getElementById('slider-epaisseur').value);
+    const checked = document.querySelector('input[name="autocollant"]:checked');
+    updateSticker(!!checked && checked.value === 'Oui');
+    updateSpec();
+  }
+  syncAll();
+  window.addEventListener('pageshow', syncAll);
 </script>
 </body>
 </html>
