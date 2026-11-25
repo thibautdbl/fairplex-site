@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fairplex – Le réflexe antivol</title>
-<meta name="description" content="Fairplex conçoit des protections antivol en plexiglass sur mesure pour les étagères de commerces. Sans outils, au millimètre, dès 29,90 € HT.">
+<meta name="description" content="Fairplex conçoit des protections antivol en plexiglass sur mesure pour les étagères de commerces. Sans outils, au millimètre, dès 39,90 € HT.">
 <link rel="icon" href="logo.jpg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fairplex.fr/">
 <meta property="og:title" content="Fairplex – Le réflexe antivol">
-<meta property="og:description" content="Protections d'étagères antivol en plexiglass, sur mesure et sans outils. Créé par 3 pharmaciens à Toulouse. Dès 29,90 € HT.">
+<meta property="og:description" content="Protections d'étagères antivol en plexiglass, sur mesure et sans outils. Créé par 3 pharmaciens à Toulouse. Dès 39,90 € HT.">
 <meta property="og:image" content="https://fairplex.fr/logo2.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -285,7 +285,7 @@
   <div>
     <div class="hero-tag">Le réflexe antivol pour vos commerces</div>
     <h1>Le plexiglass qui <em>protège</em> vos produits.</h1>
-    <p>Fairplex conçoit des protections d'étagères antivols en plexiglass, pratiques, élégantes et discrètes, pour tous les commerces. Sur mesure, sans outils, <span class="hero-price">dès 29,90 € HT</span>.</p>
+    <p>Fairplex conçoit des protections d'étagères antivols en plexiglass, pratiques, élégantes et discrètes, pour tous les commerces. Sur mesure, sans outils, <span class="hero-price">dès 39,90 € HT</span>.</p>
     <a href="#configurateur" class="btn-primary">Faire une demande de devis</a>
   </div>
   <div class="hero-visual">
@@ -377,7 +377,7 @@
       </div>
       <div class="produit-price price-mesure">
         <div style="display:flex; align-items:baseline; gap:0.4rem;">
-          <span class="price-amount">29,90 €</span>
+          <span class="price-amount">39,90 €</span>
           <span class="price-unit">/ protection HT</span>
         </div>
         <p class="price-note" style="margin-top:6px; color:var(--orange); font-weight:500;">🎉 Offre de lancement</p>
@@ -393,7 +393,7 @@
   <p class="section-lead" style="margin-top:0.5rem;">Renseignez vos dimensions, vos options et vos coordonnées.</p>
 
   <div class="config-layout">
-    <form action="/merci" class="config-form" id="devis-form" method="POST" name="devis-fairplex" data-netlify="true" netlify-honeypot="bot-field">
+    <form action='/merci' class='config-form' id='devis-form' method='POST' name='devis-fairplex'>
       <input type="hidden" name="form-name" value="devis-fairplex">
       <p class="hidden"><label>Ne pas remplir : <input name="bot-field"></label></p>
 
@@ -441,8 +441,8 @@
         <input type="hidden" name="hauteur"        id="hidden-hauteur"        value="20 cm">
         <input type="hidden" name="profondeur"     id="hidden-profondeur"     value="15 cm">
         <input type="hidden" name="epaisseur"      id="hidden-epaisseur"      value="4 mm">
-        <input type="hidden" name="prix_unitaire"  id="hidden-prix-unitaire"  value="29,90 € HT">
-        <input type="hidden" name="total_estime"   id="hidden-total"          value="299,00 € HT">
+        <input type="hidden" name="prix_unitaire"  id="hidden-prix-unitaire"  value="39,90 € HT">
+        <input type="hidden" name="total_estime"   id="hidden-total"          value="399,00 € HT">
 
         <!-- Quantité directement sous les dimensions -->
         <div class="form-group" style="margin-top:1rem;">
@@ -482,7 +482,7 @@
           <div class="prix-estime-label">Estimation totale</div>
           <div class="prix-estime-note">HT, autocollant inclus si sélectionné</div>
         </div>
-        <div class="prix-estime-val" id="prix-total" aria-live="polite">299,00 €</div>
+        <div class="prix-estime-val" id="prix-total" aria-live="polite">399,00 €</div>
       </div>
 
       <!-- COORDONNÉES -->
@@ -552,7 +552,7 @@
         </div>
         <div class="preview-spec-row row-sep">
           <span class="preview-spec-label">Prix unitaire</span>
-          <span class="preview-spec-val" id="pv-pu">29,90 € HT</span>
+          <span class="preview-spec-val" id="pv-pu">39,90 € HT</span>
         </div>
         <div class="preview-spec-row row-sub" id="row-autocollant-prix" style="display:none;">
           <span class="preview-spec-label">Autocollants</span>
@@ -560,7 +560,7 @@
         </div>
         <div class="preview-spec-row row-total">
           <span class="preview-spec-label">Total estimé HT</span>
-          <span class="preview-spec-val" id="pv-prix">299,00 €</span>
+          <span class="preview-spec-val" id="pv-prix">399,00 €</span>
         </div>
       </div>
     </div>
@@ -622,7 +622,7 @@
   }
 
   /* ── PRIX ── */
-  const PRIX_UNITAIRE = 29.90;     // offre de lancement, € HT par protection
+  const PRIX_UNITAIRE = 39.90;     // offre de lancement, € HT par protection
   const PRIX_AUTOCOLLANT = 0.80;   // € HT par étagère
   let stickerOn = false;
 
